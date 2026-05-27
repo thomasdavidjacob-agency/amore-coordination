@@ -1,0 +1,39 @@
+---
+layout: base.njk
+title: The Journal
+description: "Honest, helpful guidance for couples planning a wedding in Oregon & SW Washington — from timelines and budgets to weather, vendors, and peace of mind."
+---
+
+<section class="page-hero">
+  <p class="section__eyebrow">For the Bride-to-Be</p>
+  <h1 class="page-hero__title">The Journal</h1>
+  <p class="page-hero__sub">Real answers to the questions I hear most — written to make your planning calmer, clearer, and a little more joyful.</p>
+</section>
+
+<section class="bloglist">
+  {% if collections.blog.length %}
+  <div class="bloglist__grid">
+    {% for post in collections.blog %}
+    <a class="postcard" href="{{ post.url }}">
+      {% if post.data.cover %}<div class="postcard__img"><img src="{{ post.data.cover }}" alt="{{ post.data.title }}" loading="lazy" /></div>{% endif %}
+      <div class="postcard__body">
+        <p class="postcard__date">{{ post.date | readableDate }}</p>
+        <h2 class="postcard__title">{{ post.data.title }}</h2>
+        <p class="postcard__excerpt">{{ post.data.description }}</p>
+        <span class="postcard__more">Read More →</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="bloglist__empty">New stories are on the way — check back soon.</p>
+  {% endif %}
+</section>
+
+<section class="cta-band">
+  <div class="cta-band__inner">
+    <p class="section__eyebrow">Have a Question I Haven't Answered?</p>
+    <h2 class="section__title">Just ask — I'm happy to help.</h2>
+    <a href="/contact/" class="btn btn--dark">Get in Touch</a>
+  </div>
+</section>

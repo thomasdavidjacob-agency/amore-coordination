@@ -1,0 +1,46 @@
+---
+layout: base.njk
+pagination:
+  data: couples
+  size: 1
+  alias: couple
+  addAllPagesToCollections: true
+permalink: "/portfolio/{{ couple.slug }}/"
+eleventyComputed:
+  title: "{{ couple.couple | safe }} — {{ couple.venue }} Wedding"
+  description: "A {{ couple.venue }} wedding in {{ couple.location }} — {{ couple.couple | safe }}, coordinated by Amore Coordination. Photography by {{ couple.photog }}."
+  socialImage: "{{ couple.cover }}"
+---
+
+<section class="page-hero page-hero--couple">
+  <p class="section__eyebrow"><a href="/portfolio/" class="back-link">Portfolio</a> · {{ couple.location }}</p>
+  <h1 class="page-hero__title">{{ couple.couple }}</h1>
+  <p class="page-hero__sub">{{ couple.venue }}, {{ couple.location }} &nbsp;·&nbsp; Photography by {{ couple.photog }}</p>
+</section>
+
+<section class="pgallery-wrap">
+  <div class="pgallery" id="pgallery">
+    {% for src in couple.photos %}
+    <button class="pgallery__item" type="button" aria-label="View photo {{ loop.index }} of {{ couple.photos.length }}">
+      <img src="{{ src }}" alt="{{ couple.couple }} wedding at {{ couple.venue }}, {{ couple.location }} — photo {{ loop.index }}" loading="lazy" />
+    </button>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="cta-band__inner">
+    <p class="section__eyebrow">Planning a {{ couple.venue }} Wedding?</p>
+    <h2 class="section__title">I'd love to help bring it to life.</h2>
+    <p class="cta-band__lead">I've coordinated celebrations at {{ couple.venue }} and venues across {{ couple.location }} and beyond.</p>
+    <a href="/contact/" class="btn btn--dark">Start Your Inquiry</a>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb__close" id="lbClose" aria-label="Close gallery">&times;</button>
+  <button class="lb__nav lb__nav--prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+  <div class="lb__stage"><img class="lb__main" id="lbMain" src="" alt="{{ couple.couple }} wedding photo" /></div>
+  <button class="lb__nav lb__nav--next" id="lbNext" aria-label="Next photo">&#8250;</button>
+  <p class="lb__count" id="lbCount"></p>
+</div>

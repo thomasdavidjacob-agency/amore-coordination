@@ -1,0 +1,78 @@
+---
+layout: base.njk
+transparentNav: true
+description: "Portland, Oregon wedding planning & coordination by Amy Elizabeth Ha. Over 10 years, 230+ weddings — calm, kind, detail-driven planning for couples of all backgrounds."
+---
+
+<section class="hero" id="top">
+  <div class="hero__slides">
+    {% for src in site.heroSlides %}
+      <div class="hero__slide{% if loop.first %} is-active{% endif %}" style="background-image:url('{{ src }}')"></div>
+    {% endfor %}
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <p class="hero__eyebrow">Portland, Oregon · Wedding &amp; Event Planning</p>
+    <h1 class="hero__title">Amore Coordination</h1>
+    <p class="hero__tagline">Plan&nbsp;·&nbsp;Create&nbsp;·&nbsp;Inspire</p>
+    <a href="/contact/" class="btn btn--light">Begin Your Inquiry</a>
+  </div>
+  <div class="hero__dots" id="heroDots"></div>
+</section>
+
+<section class="intro">
+  <p class="intro__text">
+    We proudly work with couples, families, and clients of all backgrounds, identities,
+    and love stories. Our work is rooted in respect, kindness, and connection — and we
+    strive to create spaces where everyone feels welcomed and seen.
+  </p>
+</section>
+
+<section class="about">
+  <div class="about__media">
+    <img src="/assets/images/amy-elizabeth-ha-wedding-planner.jpg" alt="Amy Elizabeth Ha, founder and lead planner of Amore Coordination" loading="lazy" />
+  </div>
+  <div class="about__body">
+    <p class="section__eyebrow">Meet Your Planner</p>
+    <h2 class="section__title">Amy Elizabeth Ha</h2>
+    <p>
+      With over ten years of experience and more than 230 weddings coordinated, I bring
+      exceptional standards of kindness and care to every celebration. I see my role not
+      as a service provider, but as your partner — someone who listens closely, anticipates
+      the details, and holds the whole day together so you don't have to.
+    </p>
+    <a href="/about/" class="btn btn--dark">My Story</a>
+  </div>
+</section>
+
+<section class="portfolio">
+  <div class="section__head">
+    <p class="section__eyebrow">Selected Celebrations</p>
+    <h2 class="section__title">Recent Weddings</h2>
+  </div>
+  <div class="grid">
+    {% for p in portfolio %}{% if loop.index0 < 6 %}
+      {% set hasGallery = p.slug and galleries[p.slug] %}
+      <a class="card{% if hasGallery %} card--gallery{% endif %}" {% if hasGallery %}href="/portfolio/{{ p.slug }}/"{% else %}href="/portfolio/"{% endif %}>
+        <img src="{{ p.cover }}" alt="{{ p.couple }} wedding at {{ p.venue }}, {{ p.location }}" loading="lazy" />
+        <div class="card__veil">
+          <p class="card__couple">{{ p.couple }}</p>
+          <p class="card__venue">{{ p.venue }} · {{ p.location }}</p>
+          {% if hasGallery %}<span class="card__view">View Gallery · {{ galleries[p.slug].length }} Photos</span>{% endif %}
+        </div>
+      </a>
+    {% endif %}{% endfor %}
+  </div>
+  <div class="section__cta">
+    <a href="/portfolio/" class="btn btn--dark">View Full Portfolio</a>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="cta-band__inner">
+    <p class="section__eyebrow">Let's Begin</p>
+    <h2 class="section__title">Your day, beautifully held.</h2>
+    <p class="cta-band__lead">Tell me about your celebration — I'd love to hear your story and how I can help.</p>
+    <a href="/contact/" class="btn btn--dark">Start Your Inquiry</a>
+  </div>
+</section>

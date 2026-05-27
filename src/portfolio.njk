@@ -1,0 +1,36 @@
+---
+layout: base.njk
+title: Portfolio
+description: "Real Oregon & SW Washington weddings coordinated by Amore Coordination — Skamania Lodge, Hoyt Arboretum, Oregon Golf Club, and more. Browse full galleries."
+---
+
+<section class="page-hero">
+  <p class="section__eyebrow">Selected Celebrations</p>
+  <h1 class="page-hero__title">Portfolio</h1>
+  <p class="page-hero__sub">A few of the couples and venues it's been my joy to work with across Oregon and Washington.</p>
+</section>
+
+<section class="portfolio portfolio--page">
+  <div class="grid">
+    {% for p in portfolio %}
+      {% set hasGallery = p.slug and galleries[p.slug] %}
+      <a class="card{% if hasGallery %} card--gallery{% endif %}" href="{% if hasGallery %}/portfolio/{{ p.slug }}/{% else %}/contact/{% endif %}">
+        <img src="{{ p.cover }}" alt="{{ p.couple }} wedding at {{ p.venue }}, {{ p.location }} — coordinated by Amore Coordination" loading="lazy" />
+        <div class="card__veil">
+          <p class="card__couple">{{ p.couple }}</p>
+          <p class="card__venue">{{ p.venue }} · {{ p.location }}</p>
+          <p class="card__photog">{{ p.photog }}</p>
+          {% if hasGallery %}<span class="card__view">View Gallery · {{ galleries[p.slug].length }} Photos</span>{% endif %}
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="cta-band__inner">
+    <p class="section__eyebrow">Your Wedding, Next</p>
+    <h2 class="section__title">I'd love to hear your story.</h2>
+    <a href="/contact/" class="btn btn--dark">Start Your Inquiry</a>
+  </div>
+</section>

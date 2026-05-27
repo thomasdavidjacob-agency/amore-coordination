@@ -1,0 +1,23 @@
+---
+layout: base.njk
+article: true
+ogType: article
+---
+
+<article class="post">
+  <header class="post__head">
+    <p class="section__eyebrow"><a href="/blog/" class="back-link">Journal</a></p>
+    <h1 class="post__title">{{ title }}</h1>
+    <p class="post__meta">{{ author or site.founder }} &nbsp;·&nbsp; {{ page.date | readableDate }}</p>
+  </header>
+
+  <div class="post__body">
+    {{ content | safe }}
+  </div>
+
+  <div class="post__cta">
+    <p class="post__cta-eyebrow">Thinking about your own day?</p>
+    <p class="post__cta-text">If this sounds like the kind of support you've been hoping for, I'd love to hear your story.</p>
+    <a href="/contact/" class="btn btn--dark">Start a Conversation</a>
+  </div>
+</article>

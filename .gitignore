@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build output (Netlify rebuilds this)
+_site/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+.cache/
+
+# Stale pre-Eleventy single-page files (superseded by src/ — kept on disk, not in repo)
+/index.html
+/script.js
+/styles.css
+/galleries.js
+/images/

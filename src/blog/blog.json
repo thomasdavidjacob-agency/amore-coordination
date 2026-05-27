@@ -1,0 +1,5 @@
+{
+  "layout": "post.njk",
+  "author": "Amy Elizabeth Ha",
+  "permalink": "/blog/{{ page.fileSlug }}/"
+}

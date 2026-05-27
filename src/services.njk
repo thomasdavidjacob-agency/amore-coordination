@@ -1,0 +1,60 @@
+---
+layout: base.njk
+title: Services & Pricing
+description: "Wedding planning packages from Amore Coordination in Portland, OR — day-of coordination, partial planning, and full-service planning, with transparent pricing."
+faqSchema: true
+---
+
+<section class="page-hero">
+  <p class="section__eyebrow">Investment</p>
+  <h1 class="page-hero__title">Services &amp; Pricing</h1>
+  <p class="page-hero__sub">Transparent packages, thoughtfully designed around how much support you'd like.</p>
+</section>
+
+<section class="services">
+  <div class="packages">
+    {% for pkg in services.packages %}
+    <article class="pkg{% if pkg.featured %} pkg--featured{% endif %}">
+      {% if pkg.featured %}<span class="pkg__flag">Most Popular</span>{% endif %}
+      <h2 class="pkg__name">{{ pkg.name }}</h2>
+      <p class="pkg__price">{{ pkg.price }}</p>
+      <p class="pkg__type">{{ pkg.type }}</p>
+      <p class="pkg__desc">{{ pkg.desc }}</p>
+      <a href="/contact/" class="btn btn--dark">Inquire</a>
+    </article>
+    {% endfor %}
+  </div>
+
+  <div class="addons">
+    <h2 class="addons__title">Embellishments</h2>
+    <ul class="addons__list">
+      {% for a in services.addons %}
+      <li><span>{{ a.name }}</span><em>{{ a.price }}</em></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="section__head">
+    <p class="section__eyebrow">Good to Know</p>
+    <h2 class="section__title">Frequently Asked</h2>
+  </div>
+  <div class="faq__list" id="faqList">
+    {% for f in faqs %}
+    <div class="faq__item">
+      <button class="faq__q">{{ f.q }}</button>
+      <div class="faq__a"><p>{{ f.a }}</p></div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="cta-band__inner">
+    <p class="section__eyebrow">Ready When You Are</p>
+    <h2 class="section__title">Let's find your perfect fit.</h2>
+    <p class="cta-band__lead">Not sure which package suits your day? Tell me a little about your plans and I'll guide you.</p>
+    <a href="/contact/" class="btn btn--dark">Start Your Inquiry</a>
+  </div>
+</section>
