@@ -112,3 +112,34 @@ document
 // ===== Year =====
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// ===== Inquiry form =====
+const inquiryForm = document.getElementById("inquiryForm");
+if (inquiryForm) {
+  inquiryForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById("formSubmit");
+    const errEl = document.getElementById("formError");
+    const successEl = document.getElementById("formSuccess");
+    const data = Object.fromEntries(new FormData(inquiryForm));
+    btn.disabled = true;
+    btn.textContent = "Sending…";
+    errEl.hidden = true;
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || "Something went wrong.");
+      inquiryForm.hidden = true;
+      successEl.hidden = false;
+    } catch (err) {
+      errEl.textContent = err.message;
+      errEl.hidden = false;
+      btn.disabled = false;
+      btn.textContent = "Send Inquiry";
+    }
+  });
+}

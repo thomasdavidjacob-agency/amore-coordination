@@ -13,25 +13,28 @@ description: "Inquire with Amore Coordination — Portland, Oregon wedding plann
       will always remain confidential.
     </p>
 
-    <form class="contact__form" name="inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you/">
-      <input type="hidden" name="form-name" value="inquiry" />
-      <p class="hidden-field"><label>Don't fill this out: <input name="bot-field" /></label></p>
+    <form class="contact__form" id="inquiryForm">
       <div class="field">
-        <input type="text" name="Name" placeholder="Your name(s)" required />
+        <input type="text" name="name" placeholder="Your name(s)" required />
       </div>
       <div class="field-row">
-        <div class="field"><input type="email" name="Email" placeholder="Email" required /></div>
-        <div class="field"><input type="tel" name="Phone" placeholder="Phone" /></div>
+        <div class="field"><input type="email" name="email" placeholder="Email" required /></div>
+        <div class="field"><input type="tel" name="phone" placeholder="Phone" /></div>
       </div>
       <div class="field-row">
-        <div class="field"><input type="text" name="Wedding Date" placeholder="Wedding / event date" /></div>
-        <div class="field"><input type="text" name="Venue" placeholder="Venue (if known)" /></div>
+        <div class="field"><input type="text" name="weddingDate" placeholder="Wedding / event date" /></div>
+        <div class="field"><input type="text" name="venue" placeholder="Venue (if known)" /></div>
       </div>
       <div class="field">
-        <textarea name="Message" rows="5" placeholder="Tell me about your vision…"></textarea>
+        <textarea name="message" rows="5" placeholder="Tell me about your vision…"></textarea>
       </div>
-      <button type="submit" class="btn btn--dark">Send Inquiry</button>
+      <p id="formError" class="form-error" hidden></p>
+      <button type="submit" class="btn btn--dark" id="formSubmit">Send Inquiry</button>
     </form>
+    <div class="form-success" id="formSuccess" hidden>
+      <p>✦ Thank you — your inquiry has been received.</p>
+      <p>Amy will be in touch within 1–2 business days.</p>
+    </div>
 
     <div class="contact__details">
       <a href="mailto:{{ site.email }}">{{ site.email }}</a>
