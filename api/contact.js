@@ -38,12 +38,12 @@ module.exports = async function handler(req, res) {
 
     if (error) {
       console.error('Resend error:', JSON.stringify(error))
-      return res.status(500).json({ error: 'Failed to send. Please try again.', debug: error })
+      return res.status(500).json({ error: 'Failed to send. Please try again.' })
     }
 
     return res.status(200).json({ success: true })
   } catch (err) {
     console.error('Contact form error:', err)
-    return res.status(500).json({ error: 'Failed to send. Please try again.', debug: err.message, key: process.env.RESEND_API_KEY ? 'set' : 'MISSING' })
+    return res.status(500).json({ error: 'Failed to send. Please try again.' })
   }
 }
