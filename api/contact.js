@@ -37,7 +37,7 @@ module.exports = async function handler(req, res) {
     })
 
     if (error) {
-      console.error('Resend error:', error)
+      console.error('Resend error:', JSON.stringify(error))
       return res.status(500).json({ error: 'Failed to send. Please try again.' })
     }
 
