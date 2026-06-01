@@ -349,6 +349,9 @@ img { display: block; max-width: 100%; }
 }
 .footer__social a:hover { color: var(--blush); }
 .footer__copy { font-size: 0.75rem; color: rgba(247,243,236,0.45); letter-spacing: 0.04em; }
+.footer__credit { font-size: 0.68rem; color: rgba(247,243,236,0.25); margin-top: 0.4rem; }
+.footer__credit a { color: inherit; text-decoration: none; }
+.footer__credit a:hover { color: rgba(247,243,236,0.45); }
 
 /* ===== Portfolio gallery hint ===== */
 .card--gallery { cursor: pointer; }
