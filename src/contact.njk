@@ -13,7 +13,7 @@ description: "Inquire with Amore Coordination — Portland, Oregon wedding plann
       will always remain confidential.
     </p>
 
-    <form class="contact__form" id="inquiryForm">
+    <form class="contact__form" id="inquiryForm" autocomplete="off">
       <div class="field">
         <input type="text" name="name" placeholder="Your name(s)" required />
       </div>
@@ -28,6 +28,7 @@ description: "Inquire with Amore Coordination — Portland, Oregon wedding plann
       <div class="field">
         <textarea name="message" rows="5" placeholder="Tell me about your vision…"></textarea>
       </div>
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
       <p id="formError" class="form-error" hidden></p>
       <button type="submit" class="btn btn--dark" id="formSubmit">Send Inquiry</button>
     </form>

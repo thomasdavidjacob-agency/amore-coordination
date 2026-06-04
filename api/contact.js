@@ -1,14 +1,34 @@
 const { Resend } = require('resend')
 
+const BLOCKED_DOMAINS = ['t.com', 'test.com', 'example.com', 'mailinator.com', 'guerrillamail.com', 'tempmail.com', 'throwaway.email']
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  const { name, email, phone, weddingDate, venue, message } = req.body
+  const { name, email, phone, weddingDate, venue, message, _honey } = req.body
+
+  // Honeypot — bots fill this, humans don't
+  if (_honey) {
+    return res.status(200).json({ success: true })
+  }
 
   if (!name || !email || !message) {
     return res.status(400).json({ error: 'Name, email, and message are required.' })
+  }
+
+  // Block fake/test email domains
+  const domain = email.split('@')[1]?.toLowerCase()
+  if (!EMAIL_RE.test(email) || BLOCKED_DOMAINS.includes(domain)) {
+    return res.status(400).json({ error: 'Please enter a valid email address.' })
+  }
+
+  // Minimum length checks to block low-effort spam
+  if (name.trim().length < 2 || message.trim().length < 10) {
+    return res.status(400).json({ error: 'Please provide a complete name and message.' })
   }
 
   const resend = new Resend(process.env.RESEND_API_KEY)
