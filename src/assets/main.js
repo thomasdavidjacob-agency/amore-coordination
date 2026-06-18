@@ -116,6 +116,9 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 // ===== Inquiry form =====
 const inquiryForm = document.getElementById("inquiryForm");
 if (inquiryForm) {
+  const tField = document.getElementById("_formT");
+  if (tField) tField.value = Date.now().toString();
+
   inquiryForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const btn = document.getElementById("formSubmit");
