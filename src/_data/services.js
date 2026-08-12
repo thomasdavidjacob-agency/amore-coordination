@@ -2,6 +2,25 @@
 // WordPress site (/wedding-packages/ and /services/). Prices below are the
 // CURRENT prices — the archived pages listed older, lower figures.
 module.exports = {
+  // "What to expect" trio, also recovered from the old /services/ page.
+  expect: [
+    {
+      title: "Communication",
+      tagline: "Clear | Decisive | Detailed",
+      text: "From our initial consultation to the final moments of your wedding night, I take great pride in ensuring prompt and timely communication with all parties involved, from the couple to the vendors.",
+    },
+    {
+      title: "Experience",
+      tagline: "Organized | Personalized | Insightful",
+      text: "My job is to make sure your vision of the perfect wedding day is executed exactly the way you planned it, giving you the best experience, a lifetime of memories.",
+    },
+    {
+      title: "Create & Design",
+      tagline: "Plan | Inspire | Create",
+      text: "From venue to catering, floral to music, I help create and design each individual package to meet your exact needs, partnering up with the best in the wedding industry.",
+    },
+  ],
+
   packages: [
     {
       slug: "endearment",

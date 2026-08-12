@@ -11,6 +11,22 @@ faqSchema: true
   <p class="page-hero__sub">Transparent packages, thoughtfully designed around how much support you'd like.</p>
 </section>
 
+<section class="expect">
+  <div class="section__head">
+    <p class="section__eyebrow">What to Expect</p>
+    <h2 class="section__title">How I work with you</h2>
+  </div>
+  <div class="expect__grid">
+    {% for e in services.expect %}
+    <article class="expect__item">
+      <h3 class="expect__title">{{ e.title }}</h3>
+      <p class="expect__tagline">{{ e.tagline }}</p>
+      <p class="expect__text">{{ e.text }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
 <section class="services">
   <div class="packages">
     {% for pkg in services.packages %}

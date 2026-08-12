@@ -218,8 +218,35 @@ img { display: block; max-width: 100%; }
   opacity: 0.75; margin-top: 0.5rem;
 }
 
+/* ===== What to expect ===== */
+.expect {
+  max-width: 1100px; margin: 0 auto; padding: 5rem 2rem 1rem;
+}
+.expect__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+.expect__item { text-align: center; }
+.expect__title {
+  font-family: var(--serif); font-weight: 500; font-size: 1.9rem; line-height: 1.15;
+}
+.expect__tagline {
+  font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--plum); margin: 0.6rem 0 1.1rem;
+}
+.expect__tagline::before,
+.expect__tagline::after {
+  content: ""; display: block; width: 34px; height: 1px;
+  background: var(--line); margin: 0 auto;
+}
+.expect__tagline::before { margin-bottom: 0.9rem; }
+.expect__tagline::after { margin-top: 0.9rem; }
+.expect__text { color: var(--ink-soft); font-size: 0.95rem; }
+
+@media (max-width: 900px) {
+  .expect__grid { grid-template-columns: 1fr; gap: 2.6rem; max-width: 460px; margin: 0 auto; }
+}
+
 /* ===== Services ===== */
 .services { padding: 7rem 2rem; max-width: 1240px; margin: 0 auto; }
+.expect + .services { padding-top: 4rem; }
 .packages {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem;
   margin-bottom: 4rem;
