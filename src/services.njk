@@ -20,8 +20,10 @@ faqSchema: true
       <p class="pkg__price">{{ pkg.price }}</p>
       <p class="pkg__type">{{ pkg.type }}</p>
       <p class="pkg__desc">{{ pkg.desc }}</p>
-      <p class="pkg__hours">{{ pkg.hours }}</p>
-      <a href="#pkg-{{ pkg.slug }}" class="pkg__more">See everything included</a>
+      <div class="pkg__box">
+        <p class="pkg__hours">{{ pkg.hours }}</p>
+        <a href="#pkg-{{ pkg.slug }}" class="pkg__more">See everything included</a>
+      </div>
       <a href="/contact/" class="btn btn--dark">Inquire</a>
     </article>
     {% endfor %}
