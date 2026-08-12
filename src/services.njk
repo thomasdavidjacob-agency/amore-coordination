@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: Services & Pricing
-description: "Wedding planning packages from Amore Coordination in Portland, OR — day-of coordination, partial planning, and full-service planning, with transparent pricing."
+description: "Wedding planning packages from Amore Coordination in Portland, OR — day-of coordination, partial planning, and full-service planning, with everything each package includes."
 faqSchema: true
 ---
 
@@ -20,18 +20,81 @@ faqSchema: true
       <p class="pkg__price">{{ pkg.price }}</p>
       <p class="pkg__type">{{ pkg.type }}</p>
       <p class="pkg__desc">{{ pkg.desc }}</p>
+      <p class="pkg__hours">{{ pkg.hours }}</p>
+      <a href="#pkg-{{ pkg.slug }}" class="pkg__more">See everything included</a>
       <a href="/contact/" class="btn btn--dark">Inquire</a>
     </article>
     {% endfor %}
   </div>
 
-  <div class="addons">
-    <h2 class="addons__title">Embellishments</h2>
-    <ul class="addons__list">
-      {% for a in services.addons %}
-      <li><span>{{ a.name }}</span><em>{{ a.price }}</em></li>
-      {% endfor %}
-    </ul>
+  <p class="services__note">{{ services.packageNote }}</p>
+</section>
+
+<section class="pkgdetails">
+  <div class="section__head">
+    <p class="section__eyebrow">In Detail</p>
+    <h2 class="section__title">What each package includes</h2>
+  </div>
+
+  {% for pkg in services.packages %}
+  <article class="pkgdetail" id="pkg-{{ pkg.slug }}">
+    <header class="pkgdetail__head">
+      <p class="pkgdetail__flag">{{ pkg.flag }}</p>
+      <h3 class="pkgdetail__name">{{ pkg.name }}</h3>
+      <p class="pkgdetail__meta">{{ pkg.type }} · {{ pkg.price }}</p>
+    </header>
+
+    <div class="acc" data-accordion>
+      <div class="acc__item">
+        <button class="acc__q" type="button">What is included with this package?</button>
+        <div class="acc__a">
+          <ul class="incl">
+            {% for item in pkg.includes %}
+            <li><strong>{{ item.title }}</strong> — {{ item.text }}</li>
+            {% endfor %}
+          </ul>
+          <p class="incl__note">{{ services.packageNote }}</p>
+        </div>
+      </div>
+
+      <div class="acc__item">
+        <button class="acc__q" type="button">Who is the {{ pkg.name }} package for?</button>
+        <div class="acc__a">
+          {% for para in pkg.longDesc %}
+          <p>{{ para }}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <a href="/contact/" class="btn btn--dark pkgdetail__cta">Inquire about {{ pkg.name }}</a>
+  </article>
+  {% endfor %}
+</section>
+
+<section class="addons">
+  <div class="section__head">
+    <p class="section__eyebrow">Add-Ons</p>
+    <h2 class="section__title">Embellishments</h2>
+  </div>
+
+  <div class="acc" data-accordion>
+    {% for a in services.addons %}
+    <div class="acc__item">
+      <button class="acc__q" type="button">
+        <span class="acc__label">
+          {{ a.name }}
+          <em class="acc__tagline">{{ a.tagline }}</em>
+        </span>
+        <span class="acc__price">{{ a.price }}</span>
+      </button>
+      <div class="acc__a">
+        {% for para in a.desc %}
+        <p>{{ para }}</p>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
   </div>
 </section>
 
@@ -40,11 +103,11 @@ faqSchema: true
     <p class="section__eyebrow">Good to Know</p>
     <h2 class="section__title">Frequently Asked</h2>
   </div>
-  <div class="faq__list" id="faqList">
+  <div class="faq__list acc" id="faqList" data-accordion>
     {% for f in faqs %}
-    <div class="faq__item">
-      <button class="faq__q">{{ f.q }}</button>
-      <div class="faq__a"><p>{{ f.a }}</p></div>
+    <div class="faq__item acc__item">
+      <button class="faq__q acc__q" type="button">{{ f.q }}</button>
+      <div class="faq__a acc__a"><p>{{ f.a }}</p></div>
     </div>
     {% endfor %}
   </div>

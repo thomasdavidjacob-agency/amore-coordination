@@ -41,25 +41,24 @@ if (slides.length && dotsWrap) {
   });
 }
 
-// ===== FAQ accordion =====
-const faqList = document.getElementById("faqList");
-if (faqList) {
-  faqList.querySelectorAll(".faq__q").forEach((btn) => {
+// ===== Accordions (FAQ, package detail, embellishments) =====
+document.querySelectorAll("[data-accordion]").forEach((list) => {
+  list.querySelectorAll(".acc__q").forEach((btn) => {
     btn.addEventListener("click", () => {
       const item = btn.parentElement;
       const open = item.classList.contains("is-open");
-      faqList.querySelectorAll(".faq__item").forEach((i) => {
+      list.querySelectorAll(".acc__item").forEach((i) => {
         i.classList.remove("is-open");
-        i.querySelector(".faq__a").style.maxHeight = null;
+        i.querySelector(".acc__a").style.maxHeight = null;
       });
       if (!open) {
         item.classList.add("is-open");
-        const a = item.querySelector(".faq__a");
+        const a = item.querySelector(".acc__a");
         a.style.maxHeight = a.scrollHeight + 40 + "px";
       }
     });
   });
-}
+});
 
 // ===== Gallery lightbox (per-couple pages) =====
 const pgallery = document.getElementById("pgallery");
