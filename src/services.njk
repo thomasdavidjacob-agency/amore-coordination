@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: Services & Pricing
-description: "Wedding planning packages from Amore Coordination in Portland, OR — day-of coordination, partial planning, and full-service planning, with everything each package includes."
+description: "Wedding planning packages from Amore Coordination in Portland, OR — day-of coordination, partial and full-service planning, micro weddings, and Pacific Northwest elopements, with everything each package includes."
 faqSchema: true
 ---
 
@@ -33,6 +33,7 @@ faqSchema: true
     <article class="pkg{% if pkg.featured %} pkg--featured{% endif %}">
       {% if pkg.featured %}<span class="pkg__flag">Most Popular</span>{% endif %}
       <h2 class="pkg__name">{{ pkg.name }}</h2>
+      {% if pkg.pricePrefix %}<p class="pkg__from">{{ pkg.pricePrefix }}</p>{% endif %}
       <p class="pkg__price">{{ pkg.price }}</p>
       <p class="pkg__type">{{ pkg.type }}</p>
       <p class="pkg__desc">{{ pkg.desc }}</p>
@@ -48,18 +49,48 @@ faqSchema: true
   <p class="services__note">{{ services.packageNote }}</p>
 </section>
 
+<section class="services services--intimate">
+  <div class="section__head">
+    <p class="section__eyebrow">Intimate Celebrations</p>
+    <h2 class="section__title">Micro weddings &amp; PNW elopements</h2>
+  </div>
+  <div class="packages packages--duo">
+    {% for pkg in services.intimate %}
+    <article class="pkg">
+      <h2 class="pkg__name">{{ pkg.name }}</h2>
+      {% if pkg.pricePrefix %}<p class="pkg__from">{{ pkg.pricePrefix }}</p>{% endif %}
+      <p class="pkg__price">{{ pkg.price }}</p>
+      <p class="pkg__type">{{ pkg.type }}</p>
+      <p class="pkg__desc">{{ pkg.desc }}</p>
+      <div class="pkg__box">
+        <p class="pkg__hours">{{ pkg.hours }}</p>
+        <a href="#pkg-{{ pkg.slug }}" class="pkg__more">See everything included</a>
+      </div>
+      <a href="/contact/" class="btn btn--dark">Inquire</a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<aside class="holiday-callout">
+  <p class="section__eyebrow">Holiday Events</p>
+  <h2 class="holiday-callout__title">Holiday Event Coordination — Starting at $1,250</h2>
+  <p>Corporate holiday parties, client appreciation events, private celebrations, and intimate dinners. Holiday events are limited each season.</p>
+  <a href="/holiday-events/" class="btn btn--dark">See holiday coordination</a>
+</aside>
+
 <section class="pkgdetails">
   <div class="section__head">
     <p class="section__eyebrow">In Detail</p>
     <h2 class="section__title">What each package includes</h2>
   </div>
 
-  {% for pkg in services.packages %}
+  {% for pkg in services.packages.concat(services.intimate) %}
   <article class="pkgdetail" id="pkg-{{ pkg.slug }}">
     <header class="pkgdetail__head">
-      <p class="pkgdetail__flag">{{ pkg.flag }}</p>
+      {% if pkg.flag %}<p class="pkgdetail__flag">{{ pkg.flag }}</p>{% endif %}
       <h3 class="pkgdetail__name">{{ pkg.name }}</h3>
-      <p class="pkgdetail__meta">{{ pkg.type }} · {{ pkg.price }}</p>
+      <p class="pkgdetail__meta">{{ pkg.type }} · {% if pkg.pricePrefix %}{{ pkg.pricePrefix }} {% endif %}{{ pkg.price }}</p>
     </header>
 
     <div class="acc" data-accordion>
@@ -71,7 +102,11 @@ faqSchema: true
             <li><strong>{{ item.title }}</strong> — {{ item.text }}</li>
             {% endfor %}
           </ul>
-          <p class="incl__note">{{ services.packageNote }}</p>
+          {% if pkg.locations %}
+          <p class="incl__loc-head">PNW Locations</p>
+          <p class="incl__locs">{{ pkg.locations | join(" • ") }}</p>
+          {% endif %}
+          <p class="incl__note">{{ pkg.note or services.packageNote }}</p>
         </div>
       </div>
 

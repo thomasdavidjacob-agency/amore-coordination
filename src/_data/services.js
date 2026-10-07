@@ -25,7 +25,8 @@ module.exports = {
     {
       slug: "endearment",
       name: "Endearment",
-      price: "$2,700",
+      pricePrefix: "Starting at",
+      price: "$3,000",
       type: "Day-of Coordination",
       flag: "Budget Friendly",
       hours: "Eight hours of day-of service",
@@ -58,7 +59,8 @@ module.exports = {
     {
       slug: "adoration",
       name: "Adoration",
-      price: "$4,000",
+      pricePrefix: "Starting at",
+      price: "$4,500",
       type: "Partial Planning & Coordination",
       flag: "Most Popular",
       hours: "Ten hours of day-of service",
@@ -66,7 +68,7 @@ module.exports = {
       featured: true,
       includes: [
         { title: "One Complimentary Consultation", text: "We'll start with a personalized consultation to discuss your vision and preferences." },
-        { title: "Service Initiation Three Months Before Your Event", text: "Enjoy dedicated support leading up to your wedding day." },
+        { title: "Service Initiation Nine Months Before Your Event", text: "Enjoy dedicated support leading up to your wedding day." },
         { title: "Vendor Referrals", text: "Gain access to a curated list of trusted professional vendors to fit your style and budget." },
         { title: "Unlimited Email Correspondence", text: "Stay connected with me for any questions or updates throughout the planning process." },
         { title: "Comprehensive Planning Checklist", text: "You'll receive a detailed checklist to keep you organized and on track." },
@@ -129,6 +131,71 @@ module.exports = {
         "Choosing this Full-Service Wedding Package means investing in a worry-free experience that maximizes the joy and beauty of your special day. You'll benefit from our proactive problem-solving approach, anticipating any potential challenges and addressing them before they become issues. With us by your side, you can embrace the celebration, confident that your day will be nothing short of extraordinary.",
         "This package is not just about planning; it's about creating a once-in-a-lifetime experience that you and your guests will cherish forever. By choosing our Full-Service Wedding Package, you are deciding to elevate your wedding to a level of sophistication and elegance that is truly unmatched. Let us help you craft the wedding of your dreams — an unforgettable celebration that encapsulates your love story in the most beautiful way possible. With Amore Coordination, your vision will become reality, and your wedding day will be a breathtaking reflection of your love.",
       ],
+    },
+  ],
+
+  // Smaller-celebration packages, provided by Amy (Oct 2026). Rendered as their
+  // own section on /services/. Optional fields: pricePrefix, note (overrides
+  // packageNote), locations.
+  intimate: [
+    {
+      slug: "micro-wedding",
+      name: "Micro Wedding",
+      pricePrefix: "Starting at",
+      price: "$3,000",
+      type: "Up to 50 Guests",
+      hours: "Eight hours of wedding-day coordination",
+      desc: "Designed for couples who want an intimate celebration with every detail thoughtfully coordinated.",
+      includes: [
+        { title: "Complimentary Consultation", text: "We'll discuss your vision and priorities." },
+        { title: "Three Months of Planning Support", text: "Dedicated guidance leading up to your wedding day." },
+        { title: "Unlimited Email Support", text: "Ongoing assistance throughout the planning process." },
+        { title: "Vendor Referrals", text: "Access to trusted professionals suited to your style and budget." },
+        { title: "Planning Checklist", text: "A personalized guide to keep you organized and on track." },
+        { title: "Customized Wedding-Day Timeline", text: "A detailed timeline coordinating your vendors and key events." },
+        { title: "Custom Event Layout", text: "Thoughtful planning for your ceremony, reception, and guest experience." },
+        { title: "One Venue Walkthrough", text: "Finalize logistics and details before your wedding day." },
+        { title: "Final Vendor Confirmations", text: "I'll confirm final details, arrival times, and logistics with your vendors." },
+        { title: "One-Hour Rehearsal Management", text: "I'll guide your rehearsal so everyone feels prepared." },
+        { title: "Eight Hours of Wedding-Day Coordination", text: "Dedicated on-site support throughout your celebration." },
+        { title: "On-Site Assistant", text: "Additional support to help everything run smoothly." },
+        { title: "Ceremony & Reception Management", text: "Coordination of your wedding-day events and transitions." },
+        { title: "Vendor Facilitation & Management", text: "I'll oversee your vendors for a seamless celebration." },
+      ],
+      longDesc: [
+        "Designed for couples who want an intimate celebration with every detail thoughtfully coordinated.",
+      ],
+      note: "Package pricing may vary based on location, guest count, and décor or setup.",
+    },
+    {
+      slug: "pnw-elopement",
+      name: "PNW Elopement",
+      price: "$2,500",
+      type: "Up to 10 Guests",
+      hours: "Up to six hours of on-site coordination",
+      desc: "Your day. Your people. Your PNW adventure.",
+      includes: [
+        { title: "Elopement Planning Consultation", text: "We'll discuss your vision, location, priorities, and plans for the day." },
+        { title: "Planning Support", text: "Personalized guidance throughout the planning process." },
+        { title: "PNW Location & Vendor Guidance", text: "Recommendations for beautiful locations and trusted local vendors." },
+        { title: "Planning Checklist", text: "A simple roadmap to keep everything organized." },
+        { title: "Customized Elopement Timeline", text: "A thoughtful timeline designed around your ceremony, photography, travel, and celebration." },
+        { title: "Location & Logistics Coordination", text: "Help coordinating timing, transportation, permits, vendors, and other logistical details." },
+        { title: "Vendor Coordination", text: "I'll communicate with your participating vendors and confirm final details." },
+        { title: "Ceremony Coordination", text: "I'll oversee the flow and logistics of your ceremony." },
+        { title: "Personal Details & Décor Setup", text: "Thoughtful placement of designated details, florals, signage, and décor." },
+        { title: "Up to 6 Hours of On-Site Coordination", text: "I'll be there to manage the details so you can stay present and enjoy the experience." },
+      ],
+      longDesc: [
+        "Your day. Your people. Your PNW adventure.",
+        "For couples dreaming of an intimate Pacific Northwest elopement without having to manage all the details themselves. From mountain views and forest trails to the Oregon Coast and intimate venues, I'll help you create a beautifully organized, stress-free experience.",
+      ],
+      locations: [
+        "Oregon Coast", "Columbia River Gorge", "Mount Hood", "Eastern and NE Oregon",
+        "Portland", "Willamette Valley", "Central Oregon", "Washington Coast",
+        "Seattle Area", "Olympic Peninsula", "Idaho",
+      ],
+      note: "Travel fees may apply for locations outside the Portland metro area. Additional hours and services available upon request.",
     },
   ],
 

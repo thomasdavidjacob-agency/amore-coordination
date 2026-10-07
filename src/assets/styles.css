@@ -264,6 +264,11 @@ img { display: block; max-width: 100%; }
   letter-spacing: 0.22em; text-transform: uppercase; padding: 0.4rem 1rem;
 }
 .pkg__name { font-family: var(--serif); font-weight: 500; font-size: 2rem; }
+.pkg__from {
+  font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-soft); margin-top: 0.5rem;
+}
+.pkg__from + .pkg__price { margin-top: 0; }
 .pkg__price {
   font-family: var(--serif); font-size: 2.6rem; color: var(--plum);
   margin: 0.4rem 0 0.2rem;
@@ -298,6 +303,45 @@ img { display: block; max-width: 100%; }
   color: var(--sage-deep);
 }
 
+.services--intimate { padding-top: 0; }
+.packages--duo {
+  grid-template-columns: repeat(2, 1fr); max-width: 830px;
+  margin-left: auto; margin-right: auto; margin-bottom: 0;
+}
+
+.packages--solo { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+
+/* ===== Holiday events ===== */
+.holiday__intro {
+  max-width: 720px; margin: 0 auto; padding: 1rem 2rem 0; text-align: center;
+  font-size: 1.08rem; color: var(--ink-soft);
+}
+.holiday__intro p + p { margin-top: 1.1rem; }
+.holiday__offer { padding-top: 4.5rem; padding-bottom: 5rem; }
+.holiday__included { max-width: 1100px; margin: 0 auto; padding: 0 2rem 5rem; }
+.holiday__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.4rem; }
+.holiday__group {
+  font-family: var(--serif); font-weight: 500; font-size: 1.5rem;
+  color: var(--plum); padding-bottom: 0.6rem; border-bottom: 1px solid var(--line);
+}
+.holiday__promise {
+  max-width: 680px; margin: 3.5rem auto 0; text-align: center;
+  font-family: var(--serif); font-style: italic; font-size: 1.25rem; color: var(--sage-deep);
+}
+.holiday__more { max-width: 680px; margin: 0 auto; padding: 0 2rem 6rem; text-align: center; color: var(--ink-soft); }
+.holiday__more .section__title { margin-bottom: 1rem; }
+@media (max-width: 900px) {
+  .holiday__grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+}
+
+/* ===== Holiday callout on /services/ ===== */
+.holiday-callout {
+  max-width: 830px; margin: 0 auto 6rem; padding: 2.6rem 2rem; text-align: center;
+  background: rgba(110, 61, 99, 0.06); border: 1px solid rgba(110, 61, 99, 0.2);
+}
+.holiday-callout__title { font-family: var(--serif); font-weight: 500; font-size: 1.9rem; }
+.holiday-callout p { color: var(--ink-soft); margin: 0.6rem 0 1.4rem; }
+
 /* ===== Package detail ===== */
 .pkgdetails { max-width: 900px; margin: 0 auto; padding: 0 2rem 6rem; }
 .pkgdetail {
@@ -325,6 +369,11 @@ img { display: block; max-width: 100%; }
 }
 .incl li:last-child { border-bottom: none; }
 .incl li strong { font-weight: 400; color: var(--ink); }
+.incl__loc-head {
+  margin-top: 1.4rem; text-align: left;
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--plum);
+}
+.incl__locs { margin-top: 0.4rem; text-align: left; font-size: 0.95rem; color: var(--ink-soft); }
 .incl__note {
   margin-top: 1.2rem; font-family: var(--serif); font-style: italic;
   font-size: 1rem; color: var(--sage-deep); text-align: left;
