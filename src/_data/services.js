@@ -70,7 +70,7 @@ module.exports = {
       featured: true,
       includes: [
         { title: "One Complimentary Consultation", text: "We'll start with a personalized consultation to discuss your vision and preferences." },
-        { title: "Service Initiation Twelve Months Before Your Event", text: "Enjoy dedicated support leading up to your wedding day." },
+        { title: "Service Initiation Nine Months Before Your Event", text: "Enjoy dedicated support leading up to your wedding day." },
         { title: "Vendor Referrals", text: "Gain access to a curated list of trusted professional vendors to fit your style and budget." },
         { title: "Unlimited Email Correspondence", text: "Stay connected with me for any questions or updates throughout the planning process." },
         { title: "Comprehensive Planning Checklist", text: "You'll receive a detailed checklist to keep you organized and on track." },
