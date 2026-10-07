@@ -25,6 +25,7 @@ module.exports = {
     {
       slug: "endearment",
       name: "Endearment",
+      icon: "watch",
       pricePrefix: "Starting at",
       price: "$3,000",
       type: "Day-of Coordination",
@@ -59,6 +60,7 @@ module.exports = {
     {
       slug: "adoration",
       name: "Adoration",
+      icon: "rings",
       pricePrefix: "Starting at",
       price: "$4,500",
       type: "Partial Planning & Coordination",
@@ -68,7 +70,7 @@ module.exports = {
       featured: true,
       includes: [
         { title: "One Complimentary Consultation", text: "We'll start with a personalized consultation to discuss your vision and preferences." },
-        { title: "Service Initiation Nine Months Before Your Event", text: "Enjoy dedicated support leading up to your wedding day." },
+        { title: "Service Initiation Twelve Months Before Your Event", text: "Enjoy dedicated support leading up to your wedding day." },
         { title: "Vendor Referrals", text: "Gain access to a curated list of trusted professional vendors to fit your style and budget." },
         { title: "Unlimited Email Correspondence", text: "Stay connected with me for any questions or updates throughout the planning process." },
         { title: "Comprehensive Planning Checklist", text: "You'll receive a detailed checklist to keep you organized and on track." },
@@ -93,6 +95,7 @@ module.exports = {
     {
       slug: "unforgettable",
       name: "Unforgettable",
+      icon: "diamond",
       price: "$6,500",
       type: "Full-Service Planning",
       flag: "Absolute Perfection",
@@ -141,6 +144,7 @@ module.exports = {
     {
       slug: "micro-wedding",
       name: "Micro Wedding",
+      icon: "flutes",
       pricePrefix: "Starting at",
       price: "$3,000",
       type: "Up to 50 Guests",
@@ -170,6 +174,7 @@ module.exports = {
     {
       slug: "pnw-elopement",
       name: "PNW Elopement",
+      icon: "mountains",
       price: "$2,500",
       type: "Up to 10 Guests",
       hours: "Up to six hours of on-site coordination",

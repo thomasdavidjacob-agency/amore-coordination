@@ -32,6 +32,7 @@ faqSchema: true
     {% for pkg in services.packages %}
     <article class="pkg{% if pkg.featured %} pkg--featured{% endif %}">
       {% if pkg.featured %}<span class="pkg__flag">Most Popular</span>{% endif %}
+      {% if pkg.icon %}<span class="pkg__icon">{{ icons[pkg.icon] | safe }}</span>{% endif %}
       <h2 class="pkg__name">{{ pkg.name }}</h2>
       {% if pkg.pricePrefix %}<p class="pkg__from">{{ pkg.pricePrefix }}</p>{% endif %}
       <p class="pkg__price">{{ pkg.price }}</p>
@@ -57,6 +58,7 @@ faqSchema: true
   <div class="packages packages--duo">
     {% for pkg in services.intimate %}
     <article class="pkg">
+      {% if pkg.icon %}<span class="pkg__icon">{{ icons[pkg.icon] | safe }}</span>{% endif %}
       <h2 class="pkg__name">{{ pkg.name }}</h2>
       {% if pkg.pricePrefix %}<p class="pkg__from">{{ pkg.pricePrefix }}</p>{% endif %}
       <p class="pkg__price">{{ pkg.price }}</p>
@@ -73,6 +75,7 @@ faqSchema: true
 </section>
 
 <aside class="holiday-callout">
+  <span class="pkg__icon pkg__icon--sm">{{ icons.snowflake | safe }}</span>
   <p class="section__eyebrow">Holiday Events</p>
   <h2 class="holiday-callout__title">Holiday Event Coordination — Starting at $1,250</h2>
   <p>Corporate holiday parties, client appreciation events, private celebrations, and intimate dinners. Holiday events are limited each season.</p>
@@ -88,6 +91,7 @@ faqSchema: true
   {% for pkg in services.packages.concat(services.intimate) %}
   <article class="pkgdetail" id="pkg-{{ pkg.slug }}">
     <header class="pkgdetail__head">
+      {% if pkg.icon %}<span class="pkg__icon pkg__icon--sm">{{ icons[pkg.icon] | safe }}</span>{% endif %}
       {% if pkg.flag %}<p class="pkgdetail__flag">{{ pkg.flag }}</p>{% endif %}
       <h3 class="pkgdetail__name">{{ pkg.name }}</h3>
       <p class="pkgdetail__meta">{{ pkg.type }} · {% if pkg.pricePrefix %}{{ pkg.pricePrefix }} {% endif %}{{ pkg.price }}</p>
