@@ -1,0 +1,83 @@
+---
+layout: base.njk
+pagination:
+  data: services.intimate
+  size: 1
+  alias: pkg
+  addAllPagesToCollections: true
+permalink: "/services/{{ pkg.slug }}/"
+eleventyComputed:
+  title: "{{ pkg.name }}"
+  description: "{{ pkg.name }} coordination in Portland, Oregon from Amore Coordination. {{ pkg.type }}. {{ pkg.desc }}"
+  socialImage: "{{ servicePages[pkg.slug].image }}"
+---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": {{ pkg.name | dump | safe }},
+  "serviceType": "Wedding coordination",
+  "description": {{ pkg.desc | dump | safe }},
+  "provider": { "@id": "{{ site.url }}/#business" },
+  "areaServed": "{{ site.areaServed }}",
+  "url": "{{ page.url | absUrl(site.url) }}",
+  "offers": { "@type": "Offer", "price": "{{ pkg.price | replace('$', '') | replace(',', '') }}", "priceCurrency": "USD"{% if pkg.pricePrefix %}, "description": "Starting price"{% endif %} }
+}
+</script>
+
+{% set hero = servicePages[pkg.slug] %}
+{% set eyebrow = "Intimate Celebrations" %}
+{% set heading = pkg.name %}
+{% set sub = pkg.desc %}
+{% include "svc-hero.njk" %}
+
+<section class="services svc__offer">
+  <div class="packages packages--solo">
+    <article class="pkg pkg--featured">
+      {% if pkg.icon %}<span class="pkg__icon">{{ icons[pkg.icon] | safe }}</span>{% endif %}
+      <h2 class="pkg__name">{{ pkg.name }}</h2>
+      {% if pkg.pricePrefix %}<p class="pkg__from">{{ pkg.pricePrefix }}</p>{% endif %}
+      <p class="pkg__price">{{ pkg.price }}</p>
+      <p class="pkg__type">{{ pkg.type }}</p>
+      <div class="pkg__box">
+        <p class="pkg__hours">{{ pkg.hours }}</p>
+        <a href="#included" class="pkg__more">See everything included</a>
+      </div>
+      <a href="/contact/" class="btn btn--dark">Inquire</a>
+    </article>
+  </div>
+</section>
+
+{% if pkg.longDesc.length > 1 %}
+<section class="holiday__intro svc__who">
+  {% for para in pkg.longDesc %}{% if para != pkg.desc %}<p>{{ para }}</p>{% endif %}{% endfor %}
+</section>
+{% endif %}
+
+<section class="pkgdetails" id="included">
+  <div class="section__head">
+    <p class="section__eyebrow">In Detail</p>
+    <h2 class="section__title">What's Included</h2>
+  </div>
+  <ul class="incl svc__incl">
+    {% for item in pkg.includes %}
+    <li><strong>{{ item.title }}</strong> — {{ item.text }}</li>
+    {% endfor %}
+  </ul>
+  {% if pkg.locations %}
+  <p class="incl__loc-head">PNW Locations</p>
+  <p class="incl__locs">{{ pkg.locations | join(" • ") }}</p>
+  {% endif %}
+  <p class="incl__note">{{ pkg.note or services.packageNote }}</p>
+</section>
+
+<section class="cta-band">
+  <div class="cta-band__inner">
+    <p class="section__eyebrow">Ready When You Are</p>
+    <h2 class="section__title">Let's plan your {{ pkg.name | lower }}.</h2>
+    <p class="cta-band__lead">Tell me about your date, your people, and your vision.</p>
+    <a href="/contact/" class="btn btn--dark">Start Your Inquiry</a>
+    <p class="svc__back"><a href="/services/">See all services &amp; pricing</a></p>
+  </div>
+</section>

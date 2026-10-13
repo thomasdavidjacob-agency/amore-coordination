@@ -20,7 +20,7 @@ module.exports = {
     { text: "About", url: "/about/" },
     { text: "Portfolio", url: "/portfolio/" },
     { text: "Services", url: "/services/" },
-    { text: "Holiday Events", url: "/holiday-events/" },
+    { text: "Holiday Events", url: "/services/holiday-events/" },
     { text: "Journal", url: "/blog/" },
     { text: "FAQ", url: "/services/#faq" },
   ],

@@ -66,9 +66,9 @@ faqSchema: true
       <p class="pkg__desc">{{ pkg.desc }}</p>
       <div class="pkg__box">
         <p class="pkg__hours">{{ pkg.hours }}</p>
-        <a href="#pkg-{{ pkg.slug }}" class="pkg__more">See everything included</a>
+        <a href="/services/{{ pkg.slug }}/" class="pkg__more">See everything included</a>
       </div>
-      <a href="/contact/" class="btn btn--dark">Inquire</a>
+      <a href="/services/{{ pkg.slug }}/" class="btn btn--dark">View {{ pkg.name }}</a>
     </article>
     {% endfor %}
   </div>
@@ -79,7 +79,7 @@ faqSchema: true
   <p class="section__eyebrow">Holiday Events</p>
   <h2 class="holiday-callout__title">Holiday Event Coordination — Starting at $1,250</h2>
   <p>Corporate holiday parties, client appreciation events, private celebrations, and intimate dinners. Holiday events are limited each season.</p>
-  <a href="/holiday-events/" class="btn btn--dark">See holiday coordination</a>
+  <a href="/services/holiday-events/" class="btn btn--dark">See holiday coordination</a>
 </aside>
 
 <section class="pkgdetails">
@@ -88,7 +88,8 @@ faqSchema: true
     <h2 class="section__title">What each package includes</h2>
   </div>
 
-  {% for pkg in services.packages.concat(services.intimate) %}
+  {# Micro Wedding + PNW Elopement details live on their own pages (service-page.njk) #}
+  {% for pkg in services.packages %}
   <article class="pkgdetail" id="pkg-{{ pkg.slug }}">
     <header class="pkgdetail__head">
       {% if pkg.icon %}<span class="pkg__icon pkg__icon--sm">{{ icons[pkg.icon] | safe }}</span>{% endif %}

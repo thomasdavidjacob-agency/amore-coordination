@@ -145,3 +145,69 @@ if (inquiryForm) {
     }
   });
 }
+
+// ===== Private event offer (/offer/<slug>/) =====
+const offerEl = document.getElementById("offer");
+if (offerEl) {
+  const deadline = new Date(offerEl.dataset.expires).getTime();
+  const units = offerEl.querySelectorAll("[data-unit]");
+  const pad = (n) => String(n).padStart(2, "0");
+
+  const closeOffer = () => {
+    document.getElementById("offerOpen").hidden = true;
+    document.getElementById("offerClosed").hidden = false;
+    document.getElementById("offerClock").hidden = true;
+  };
+
+  const tick = () => {
+    const left = deadline - Date.now();
+    if (left <= 0) { closeOffer(); return false; }
+    const vals = {
+      d: Math.floor(left / 86400000),
+      h: Math.floor(left / 3600000) % 24,
+      m: Math.floor(left / 60000) % 60,
+      s: Math.floor(left / 1000) % 60,
+    };
+    units.forEach((u) => { u.textContent = pad(vals[u.dataset.unit]); });
+    return true;
+  };
+  if (tick()) {
+    const timer = setInterval(() => { if (!tick()) clearInterval(timer); }, 1000);
+  }
+
+  const offerForm = document.getElementById("offerForm");
+  document.getElementById("_offerT").value = Date.now().toString();
+
+  offerForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById("offerSubmit");
+    const errEl = document.getElementById("offerError");
+    const data = Object.fromEntries(new FormData(offerForm));
+    // Carry the QR's UTM tags through so the lead email shows where it came from
+    const params = new URLSearchParams(location.search);
+    ["utm_source", "utm_medium", "utm_campaign"].forEach((k) => {
+      if (params.get(k)) data[k] = params.get(k);
+    });
+    btn.disabled = true;
+    btn.textContent = "One moment…";
+    errEl.hidden = true;
+    try {
+      const res = await fetch("/api/offer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (res.status === 410) { closeOffer(); return; }
+      if (!res.ok) throw new Error(json.error || "Something went wrong.");
+      offerForm.hidden = true;
+      document.getElementById("offerCode").textContent = json.code || "Check your inbox";
+      document.getElementById("offerReveal").hidden = false;
+    } catch (err) {
+      errEl.textContent = err.message;
+      errEl.hidden = false;
+      btn.disabled = false;
+      btn.textContent = "Reveal My Code";
+    }
+  });
+}

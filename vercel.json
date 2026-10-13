@@ -2,5 +2,9 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npx @11ty/eleventy",
   "outputDirectory": "_site",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/holiday-events", "destination": "/services/holiday-events/", "permanent": true },
+    { "source": "/holiday-events/", "destination": "/services/holiday-events/", "permanent": true }
+  ]
 }

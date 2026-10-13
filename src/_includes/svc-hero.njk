@@ -1,0 +1,9 @@
+{# Image banner for a standalone service page. Needs: hero (servicePages entry), eyebrow, heading, sub #}
+<section class="svc-hero" role="img" aria-label="{{ hero.alt }}" style="background-image:url('{{ hero.image }}');{% if hero.position %} background-position:{{ hero.position }};{% endif %}">
+  <div class="svc-hero__overlay"></div>
+  <div class="svc-hero__content">
+    <p class="svc-hero__eyebrow">{{ eyebrow }}</p>
+    <h1 class="svc-hero__title">{{ heading }}</h1>
+    <p class="svc-hero__sub">{{ sub }}</p>
+  </div>
+</section>

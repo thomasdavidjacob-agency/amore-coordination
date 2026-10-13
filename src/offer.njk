@@ -1,0 +1,90 @@
+---
+layout: base.njk
+pagination:
+  data: offers
+  size: 1
+  alias: offer
+permalink: "/offer/{{ offer.slug }}/"
+eleventyExcludeFromCollections: true
+robots: "noindex, nofollow"
+eleventyComputed:
+  title: "{{ offer.event }} Guest Offer"
+  description: "A private offer for guests of {{ offer.event }}."
+---
+
+<section class="page-hero">
+  <p class="section__eyebrow">{{ offer.event }} · Private Guest Offer</p>
+  <h1 class="page-hero__title">{{ offer.headline }}</h1>
+  <p class="page-hero__sub">{{ offer.intro }}</p>
+</section>
+
+<section class="offer" id="offer" data-expires="{{ offer.expires }}">
+  <div class="offer__card">
+    <p class="offer__amount">{{ offer.discount }} <span>off</span></p>
+    <p class="offer__applies">{{ offer.appliesTo }}</p>
+
+    <div class="offer__clock" id="offerClock" aria-live="polite">
+      <p class="offer__clock-label">Offer ends {{ offer.expires | pacificDate }}</p>
+      <div class="offer__units">
+        <div><span data-unit="d">--</span><small>Days</small></div>
+        <div><span data-unit="h">--</span><small>Hours</small></div>
+        <div><span data-unit="m">--</span><small>Minutes</small></div>
+        <div><span data-unit="s">--</span><small>Seconds</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact offer__claim" id="offerClaim">
+  <div class="contact__inner">
+    <div id="offerOpen">
+      <p class="section__eyebrow">Claim Your Offer</p>
+      <h2 class="section__title">Unlock your {{ offer.event }} code</h2>
+      <p class="contact__lead">Share where to send it. Your code will appear here and land in your inbox, ready whenever you are.</p>
+
+      <form class="contact__form" id="offerForm" autocomplete="off">
+        <input type="hidden" name="offer" value="{{ offer.slug }}" />
+        <div class="field">
+          <input type="text" name="name" placeholder="Your name(s)" required />
+        </div>
+        <div class="field-row">
+          <div class="field"><input type="email" name="email" placeholder="Email" required /></div>
+          <div class="field"><input type="tel" name="phone" placeholder="Phone (optional)" /></div>
+        </div>
+        <div class="field">
+          <input type="text" name="weddingDate" placeholder="Wedding date (if you have one)" />
+        </div>
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+        <input type="hidden" name="_t" id="_offerT" />
+        <p id="offerError" class="form-error" hidden></p>
+        <button type="submit" class="btn btn--dark" id="offerSubmit">Reveal My Code</button>
+      </form>
+
+      <div class="offer__reveal" id="offerReveal" hidden>
+        <p class="offer__reveal-label">Your code</p>
+        <p class="offer__code" id="offerCode"></p>
+        <p class="contact__lead">We've emailed it to you too. Mention it when you inquire to apply your {{ offer.discount }} savings.</p>
+        <a href="/contact/" class="btn btn--light">Start Your Inquiry</a>
+      </div>
+    </div>
+
+    <div id="offerClosed" hidden>
+      <p class="section__eyebrow">Offer Ended</p>
+      <h2 class="section__title">This {{ offer.event }} offer has closed</h2>
+      <p class="contact__lead">Thank you for your interest. I'd still love to hear about your plans.</p>
+      <a href="/contact/" class="btn btn--light">Inquire</a>
+    </div>
+
+    <p class="offer__terms">
+      Valid for new bookings made by {{ offer.expires | pacificDate }} on {{ offer.appliesTo }}.{% if not offer.combinable %} Cannot be combined with other offers or discounts.{% endif %}
+    </p>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="cta-band__inner">
+    <p class="section__eyebrow">Explore</p>
+    <h2 class="section__title">See what's included in each package</h2>
+    <a href="/services/" class="btn btn--dark">View Services</a>
+  </div>
+</section>

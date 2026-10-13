@@ -352,6 +352,31 @@ img { display: block; max-width: 100%; }
   .holiday-page .cta-band { background-size: auto 120px; padding-bottom: 150px; }
 }
 
+/* Photo-banner version: the banner replaces the top garland */
+.holiday-page--photo main { background: var(--paper); }
+.holiday-page--photo .holiday__intro { padding-top: 4.5rem; }
+
+/* ===== Standalone service pages (/services/<slug>/) ===== */
+.svc-hero {
+  position: relative; min-height: clamp(380px, 62vh, 620px);
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  background-size: cover; background-position: center;
+}
+.svc-hero__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(45,30,42,0.35) 0%, rgba(45,30,42,0.25) 45%, rgba(40,28,38,0.62) 100%);
+}
+.svc-hero__content { position: relative; z-index: 1; color: #fff; padding: 4rem 1.5rem; max-width: 820px; }
+.svc-hero__eyebrow { font-size: 0.74rem; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.92; margin-bottom: 1.2rem; }
+.svc-hero__title { font-family: var(--serif); font-weight: 500; font-size: clamp(2.6rem, 7vw, 5rem); line-height: 1.05; }
+.svc-hero__sub { font-family: var(--serif); font-style: italic; font-size: clamp(1.1rem, 2.2vw, 1.5rem); margin-top: 1rem; }
+.svc__offer { padding-top: 4.5rem; padding-bottom: 3rem; }
+.svc__who { padding-bottom: 4.5rem; }
+.svc__incl { max-width: 720px; margin: 0 auto; }
+.pkgdetails .incl__loc-head, .pkgdetails .incl__locs, .pkgdetails .incl__note { max-width: 720px; margin-left: auto; margin-right: auto; }
+.svc__back { margin-top: 1.6rem; font-size: 0.85rem; }
+.svc__back a { color: var(--plum); }
+
 /* ===== Holiday callout on /services/ ===== */
 .holiday-callout {
   max-width: 830px; margin: 0 auto 6rem; padding: 2.6rem 2rem; text-align: center;
@@ -532,6 +557,32 @@ img { display: block; max-width: 100%; }
 .form-error { color: #c0392b; font-size: 0.85rem; margin-top: 0.5rem; }
 .form-success { text-align: center; padding: 2.5rem 1rem; }
 .form-success p { font-family: var(--serif); font-size: 1.1rem; color: var(--plum); line-height: 1.8; }
+
+/* ===== Private event offer ===== */
+.offer { padding: 0 2rem 5rem; }
+.offer__card {
+  max-width: 620px; margin: 0 auto; text-align: center;
+  background: var(--paper); border: 1px solid var(--line);
+  box-shadow: var(--shadow); padding: 3rem 2rem;
+}
+.offer__amount { font-family: var(--serif); font-size: clamp(3.5rem, 10vw, 5.5rem); color: var(--plum); line-height: 1; }
+.offer__amount span { font-size: 0.4em; letter-spacing: 0.2em; text-transform: uppercase; }
+.offer__applies { color: var(--ink-soft); margin: 0.8rem 0 2.2rem; }
+.offer__clock { border-top: 1px solid var(--line); padding-top: 2rem; }
+.offer__clock-label { font-size: 0.74rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sage-deep); margin-bottom: 1.2rem; }
+.offer__units { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; max-width: 420px; margin: 0 auto; }
+.offer__units span { display: block; font-family: var(--serif); font-size: clamp(2rem, 6vw, 2.8rem); color: var(--ink); line-height: 1.1; }
+.offer__units small { font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); }
+.offer__claim .section__title { margin-top: 0.6rem; }
+.offer__reveal { padding-top: 1rem; }
+.offer__reveal-label { font-size: 0.74rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--blush); }
+.offer__code {
+  font-family: var(--serif); font-size: clamp(2.2rem, 7vw, 3.2rem); letter-spacing: 0.12em;
+  color: var(--ivory); margin: 0.4rem auto 0; padding: 0.6rem 1.6rem;
+  border: 1px solid rgba(247,243,236,0.35); display: inline-block;
+}
+.offer__reveal .contact__lead { margin-bottom: 2rem; }
+.offer__terms { font-size: 0.78rem; color: rgba(247,243,236,0.5); margin-top: 3rem; line-height: 1.7; }
 
 /* ===== Portfolio gallery hint ===== */
 .card--gallery { cursor: pointer; }

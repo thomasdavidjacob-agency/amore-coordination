@@ -28,6 +28,16 @@ module.exports = function (eleventyConfig) {
     })
   );
 
+  // Offer deadline in Pacific time, e.g. "November 30, 2026"
+  eleventyConfig.addFilter("pacificDate", (d) =>
+    new Date(d).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      timeZone: "America/Los_Angeles",
+    })
+  );
+
   // ISO date for schema/sitemap
   eleventyConfig.addFilter("isoDate", (d) => new Date(d).toISOString());
 

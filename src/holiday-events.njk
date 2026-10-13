@@ -1,7 +1,9 @@
 ---
 layout: base.njk
 title: Holiday Event Coordination
-bodyClass: holiday-page
+bodyClass: holiday-page holiday-page--photo
+permalink: /services/holiday-events/
+socialImage: /assets/images/stock/holiday-events.jpg
 description: "Holiday event coordination in Portland, Oregon from Amore Coordination — corporate holiday parties, client appreciation events, private celebrations, and intimate dinners. Starting at $1,250."
 ---
 
@@ -18,11 +20,11 @@ description: "Holiday event coordination in Portland, Oregon from Amore Coordina
 }
 </script>
 
-<section class="page-hero">
-  <p class="section__eyebrow">Holiday Events</p>
-  <h1 class="page-hero__title">Holiday Event Coordination</h1>
-  <p class="page-hero__sub">Celebrate beautifully. We'll handle the details.</p>
-</section>
+{% set hero = servicePages["holiday-events"] %}
+{% set eyebrow = "Holiday Events" %}
+{% set heading = "Holiday Event Coordination" %}
+{% set sub = "Celebrate beautifully. We'll handle the details." %}
+{% include "svc-hero.njk" %}
 
 <section class="holiday__intro">
   <p>Planning a holiday celebration should be about bringing people together — not managing vendors, timelines, setup, and last-minute details.</p>

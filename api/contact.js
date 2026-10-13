@@ -52,6 +52,36 @@ function isSpamContent(text) {
   return SPAM_PHRASES.some(p => lower.includes(p))
 }
 
+// Vendor solicitations (Wikipedia pages, SEO, web design, lead gen) are typed by
+// people or scripts, so they get past the honeypot. Score sales-pitch signals.
+// Drop silently when there is at least one pitch signal and the score is 2+.
+// One pitch signal alone still delivers, with the subject flagged so Amy can filter.
+// Missing wedding words or "-" in the fields only add weight. On their own they never drop.
+const PITCH_SIGNALS = [
+  /wikipedia|wiki page|wiki links/i,
+  /\b(seo|search engine|first page of google|1st page of google|google ranking|rank(ing)? higher)\b/i,
+  /\b(website (design|redesign|development)|web design|app development)\b/i,
+  /\b(your (business|company|website|brand)|grow your|more (leads|traffic|customers|clients))\b/i,
+  /\b(opt.?out|unsubscribe|respond with stop|reply stop|reply with stop)\b/i,
+  /\b(if you are interested|if you're interested|respond back|let me know if you('d| would) like)\b/i,
+  /\b(our (services|agency|team of experts)|we (help|offer|provide|specialize))\b/i,
+  /\b(marketing|lead generation|social media management|virtual assistant|outsourc)/i,
+]
+const WEDDING_WORDS = /\b(wedding|marry|married|marrying|engaged|engagement|fianc\w*|bride|groom|ceremony|reception|elope|elopement|venue|guests?|celebration|party|event|reunion|anniversary)\b/i
+
+// Bots tend to put "-" or "n/a" in optional fields. People leave them blank.
+const isFiller = v => /^\s*(-+|n\/?a|none|na|\.)\s*$/i.test(String(v ?? ''))
+
+function pitchScore({ name, message, weddingDate, venue }) {
+  const text = `${name} ${message}`
+  const pitch = PITCH_SIGNALS.filter(re => re.test(text)).length
+  if (!pitch) return { pitch, score: 0 }
+  let score = pitch
+  if (!WEDDING_WORDS.test(message)) score++
+  if (isFiller(weddingDate) && isFiller(venue)) score++
+  return { pitch, score }
+}
+
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' })
@@ -70,9 +100,11 @@ module.exports = async function handler(req, res) {
     return res.status(200).json({ success: true })
   }
 
-  // Timing check — real humans take at least 4 seconds to fill out a form
-  const loadTime = parseInt(_t, 10)
-  if (!isNaN(loadTime) && Date.now() - loadTime < 4000) {
+  // Timing check — real humans take at least 4 seconds to fill out a form.
+  // A missing or stale token means the POST didn't come from our page (scripts
+  // hitting /api/contact directly used to skip this check entirely).
+  const elapsed = Date.now() - parseInt(_t, 10)
+  if (isNaN(elapsed) || elapsed < 4000 || elapsed > 24 * 3600 * 1000) {
     return res.status(200).json({ success: true })
   }
 
@@ -96,6 +128,12 @@ module.exports = async function handler(req, res) {
     return res.status(200).json({ success: true })
   }
 
+  const { pitch, score } = pitchScore({ name, message, weddingDate, venue })
+  if (score >= 2) {
+    console.log('Pitch spam dropped:', JSON.stringify({ email, score }))
+    return res.status(200).json({ success: true })
+  }
+
   const resend = new Resend(process.env.RESEND_API_KEY)
 
   const safeName    = esc(name)
@@ -110,7 +148,7 @@ module.exports = async function handler(req, res) {
       from: 'Amore Coordination <amy@amorecoordination.com>',
       replyTo: email,
       to: 'Amy@AmoreCoordination.com',
-      subject: `New Inquiry — ${safeName}`,
+      subject: `${pitch ? '[Possible spam] ' : ''}New Inquiry — ${name.replace(/[\r\n]+/g, ' ').trim()}`,
       html: `
         <div style="font-family:Georgia,serif;max-width:600px;margin:0 auto;padding:32px;background:#fbf9f4;border-radius:8px;">
           <h2 style="color:#6e3d63;margin-bottom:24px;font-size:24px;">New Wedding Inquiry</h2>
