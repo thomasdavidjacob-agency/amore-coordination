@@ -12,7 +12,9 @@ module.exports = {
     position: "center 88%",
   },
   "holiday-events": {
-    image: "/assets/images/stock/holiday-events.jpg",
-    alt: "Festive holiday dinner table with ornaments and candlelight",
+    // Amy's own photo, cropped from her "Holiday Parties Without the Stress" promo graphic.
+    image: "/assets/images/holiday-table.jpg",
+    alt: "Candlelit holiday dinner table with autumn florals, amber glassware, and handwritten place cards",
+    position: "center 55%",
   },
 };
