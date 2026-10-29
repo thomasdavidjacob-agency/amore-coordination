@@ -122,7 +122,6 @@ if (inquiryForm) {
     e.preventDefault();
     const btn = document.getElementById("formSubmit");
     const errEl = document.getElementById("formError");
-    const successEl = document.getElementById("formSuccess");
     const data = Object.fromEntries(new FormData(inquiryForm));
     btn.disabled = true;
     btn.textContent = "Sending…";
@@ -135,8 +134,8 @@ if (inquiryForm) {
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error || "Something went wrong.");
-      inquiryForm.hidden = true;
-      successEl.hidden = false;
+      // A real page load, so each inquiry shows up as a /thank-you pageview in Vercel Analytics
+      location.assign("/thank-you/");
     } catch (err) {
       errEl.textContent = err.message;
       errEl.hidden = false;
@@ -144,6 +143,15 @@ if (inquiryForm) {
       btn.textContent = "Send Inquiry";
     }
   });
+}
+
+// ===== Offer claimed (/offer/<slug>/claimed/) =====
+const claimedEl = document.getElementById("offerClaimed");
+if (claimedEl) {
+  try {
+    const code = sessionStorage.getItem("offerCode:" + claimedEl.dataset.slug);
+    if (code) document.getElementById("offerCode").textContent = code;
+  } catch (_) {}
 }
 
 // ===== Private event offer (/offer/<slug>/) =====
@@ -200,9 +208,9 @@ if (offerEl) {
       const json = await res.json();
       if (res.status === 410) { closeOffer(); return; }
       if (!res.ok) throw new Error(json.error || "Something went wrong.");
-      offerForm.hidden = true;
-      document.getElementById("offerCode").textContent = json.code || "Check your inbox";
-      document.getElementById("offerReveal").hidden = false;
+      // Hand the code to /offer/<slug>/claimed/ — a real page load, so claims count as pageviews
+      try { if (json.code) sessionStorage.setItem("offerCode:" + data.offer, json.code); } catch (_) {}
+      location.assign(`/offer/${data.offer}/claimed/`);
     } catch (err) {
       errEl.textContent = err.message;
       errEl.hidden = false;
