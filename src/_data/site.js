@@ -12,7 +12,7 @@ module.exports = {
   // Cloudflare Turnstile site key (public). The matching secret lives only in Vercel
   // env as TURNSTILE_SECRET_KEY. Empty = widget not rendered (and the server skips
   // the check only while the secret is also unset).
-  turnstileSiteKey: "",
+  turnstileSiteKey: "0x4AAAAAAFwC2oepqZRKNJP5", // widget "amore-website-forms", TDJ Cloudflare account
   areaServed: "Portland, Oregon & SW Washington",
   priceRange: "$$$",
   social: {
