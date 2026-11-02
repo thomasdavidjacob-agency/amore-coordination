@@ -1,5 +1,6 @@
 const { Resend } = require('resend')
 const offers = require('../src/_data/offers.js')
+const { clientIp, checkFormToken, turnstileOk, hasLink, tooLong } = require('./_guard.js')
 
 const BLOCKED_DOMAINS = [
   't.com', 'test.com', 'example.com', 'mailinator.com', 'guerrillamail.com',
@@ -75,18 +76,30 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || req.socket?.remoteAddress || 'unknown'
+  const ip = clientIp(req)
   if (!checkRate(ip)) {
     return res.status(429).json({ error: 'Too many attempts. Please wait a few minutes and try again.' })
   }
 
-  const { offer: slug, name, email, phone, weddingDate, utm_source, utm_medium, utm_campaign, _honey, _t } = req.body || {}
+  const body = req.body || {}
+  const { offer: slug, name, email, phone, weddingDate, utm_source, utm_medium, utm_campaign, _honey, ft } = body
 
+  // Honeypot and too-fast submissions get a fake success with no code
   if (_honey) return res.status(200).json({ success: true })
-  const elapsed = Date.now() - parseInt(_t, 10)
-  if (isNaN(elapsed) || elapsed < 4000 || elapsed > 24 * 3600 * 1000) {
-    return res.status(200).json({ success: true })
+  const timing = checkFormToken(ft)
+  if (timing === 'too-fast') return res.status(200).json({ success: true })
+  if (timing === 'invalid') {
+    return res.status(400).json({ error: 'This page expired. Please refresh and try again.' })
   }
+
+  if (!(await turnstileOk(body['cf-turnstile-response'], ip))) {
+    return res.status(400).json({ error: "We couldn't verify the form. Please refresh and try again." })
+  }
+
+  if (tooLong(body, { offer: 60, name: 100, email: 254, phone: 40, weddingDate: 80, utm_source: 100, utm_medium: 100, utm_campaign: 100 })) {
+    return res.status(400).json({ error: 'One of the fields is too long. Please shorten it and try again.' })
+  }
+  if (hasLink(name) || hasLink(weddingDate)) return res.status(200).json({ success: true })
 
   const offer = offers.find(o => o.slug === slug)
   if (!offer) return res.status(404).json({ error: 'This offer could not be found.' })

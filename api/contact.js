@@ -1,4 +1,7 @@
 const { Resend } = require('resend')
+const { clientIp, checkFormToken, turnstileOk, hasLink, mostlyLinks, tooLong } = require('./_guard.js')
+
+const PHONE_LINE = 'call (503) 502-9231'
 
 const BLOCKED_DOMAINS = [
   't.com', 'test.com', 'example.com', 'mailinator.com', 'guerrillamail.com',
@@ -88,28 +91,43 @@ module.exports = async function handler(req, res) {
   }
 
   // Rate limiting by IP
-  const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || req.socket?.remoteAddress || 'unknown'
+  const ip = clientIp(req)
   if (!checkRate(ip)) {
     return res.status(429).json({ error: 'Too many submissions. Please wait a few minutes and try again.' })
   }
 
-  const { name, email, phone, weddingDate, venue, message, _honey, _t } = req.body
+  const body = req.body || {}
+  const { name, email, phone, weddingDate, venue, message, _honey, ft } = body
 
   // Honeypot — bots fill this, humans don't
   if (_honey) {
     return res.status(200).json({ success: true })
   }
 
-  // Timing check — real humans take at least 4 seconds to fill out a form.
-  // A missing or stale token means the POST didn't come from our page (scripts
-  // hitting /api/contact directly used to skip this check entirely).
-  const elapsed = Date.now() - parseInt(_t, 10)
-  if (isNaN(elapsed) || elapsed < 4000 || elapsed > 24 * 3600 * 1000) {
-    return res.status(200).json({ success: true })
+  // Signed time trap. Too fast = bot, fake success. A missing or forged token
+  // means the POST didn't come from our page; tell the sender rather than
+  // silently dropping a real inquiry whose token fetch failed.
+  const timing = checkFormToken(ft)
+  if (timing === 'too-fast') return res.status(200).json({ success: true })
+  if (timing === 'invalid') {
+    return res.status(400).json({ error: `This form expired. Please refresh the page and try again, or ${PHONE_LINE}.` })
+  }
+
+  if (!(await turnstileOk(body['cf-turnstile-response'], ip))) {
+    return res.status(400).json({ error: `We couldn't verify the form. Please refresh and try again, or ${PHONE_LINE}.` })
   }
 
   if (!name || !email || !message) {
     return res.status(400).json({ error: 'Name, email, and message are required.' })
+  }
+
+  if (tooLong(body, { name: 100, email: 254, phone: 40, weddingDate: 80, venue: 150, message: 5000 })) {
+    return res.status(400).json({ error: 'One of the fields is too long. Please shorten it and try again.' })
+  }
+
+  // Links in a name field, or a message that is mostly links, are spam
+  if (hasLink(name) || mostlyLinks(message)) {
+    return res.status(200).json({ success: true })
   }
 
   // Block disposable/fake email domains

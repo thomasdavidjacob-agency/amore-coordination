@@ -112,22 +112,105 @@ document
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+// ===== Email link (address assembled in the browser, never in the HTML) =====
+document.querySelectorAll(".js-email").forEach((a) => {
+  const rev = (s) => s.split("").reverse().join("");
+  const addr = `${rev(a.dataset.u)}@${rev(a.dataset.d)}`;
+  a.href = `mailto:${addr}`;
+  a.textContent = addr;
+});
+
+// ===== Form spam guard =====
+// Fetches a signed load-time token (server time trap) and renders Cloudflare
+// Turnstile into the form's [data-turnstile] slot. api/_guard.js does the real
+// enforcement; this only collects what the server needs.
+let turnstileApi = null;
+function loadTurnstile() {
+  if (!turnstileApi) {
+    turnstileApi = new Promise((resolve, reject) => {
+      if (window.turnstile) return resolve(window.turnstile);
+      const s = document.createElement("script");
+      s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+      s.async = true;
+      s.onload = () => resolve(window.turnstile);
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+  return turnstileApi;
+}
+
+function protectForm(form) {
+  const fetchToken = () =>
+    fetch("/api/form-token", { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : {}))
+      .then((d) => d.t || "")
+      .catch(() => "");
+
+  let token = fetchToken();
+  let widgetId = null;
+  let answer = "";
+  let waiting = [];
+  const settle = (v) => {
+    answer = v || "";
+    waiting.splice(0).forEach((fn) => fn(answer));
+  };
+
+  const slot = form.querySelector("[data-turnstile]");
+  const siteKey = slot && slot.dataset.sitekey;
+  if (siteKey) {
+    loadTurnstile()
+      .then((ts) => {
+        widgetId = ts.render(slot, {
+          sitekey: siteKey,
+          size: "flexible",
+          appearance: "interaction-only",
+          callback: settle,
+          "expired-callback": () => { answer = ""; },
+          "error-callback": () => settle(""),
+        });
+      })
+      .catch(() => settle(""));
+  }
+
+  // Waits for Turnstile, but never more than 10s, so a blocked script can't
+  // hang the form (the server then rejects and the visitor sees the phone number).
+  const turnstileAnswer = () => {
+    if (!siteKey || answer) return Promise.resolve(answer);
+    return new Promise((resolve) => {
+      waiting.push(resolve);
+      setTimeout(() => resolve(answer), 10000);
+    });
+  };
+
+  return {
+    fields: async () => {
+      const [ft, ts] = await Promise.all([token, turnstileAnswer()]);
+      return { ft, "cf-turnstile-response": ts };
+    },
+    reset: () => {
+      token = fetchToken();
+      answer = "";
+      if (window.turnstile && widgetId !== null) window.turnstile.reset(widgetId);
+    },
+  };
+}
+
 // ===== Inquiry form =====
 const inquiryForm = document.getElementById("inquiryForm");
 if (inquiryForm) {
-  const tField = document.getElementById("_formT");
-  if (tField) tField.value = Date.now().toString();
+  const guard = protectForm(inquiryForm);
 
   inquiryForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const btn = document.getElementById("formSubmit");
     const errEl = document.getElementById("formError");
     const successEl = document.getElementById("formSuccess");
-    const data = Object.fromEntries(new FormData(inquiryForm));
     btn.disabled = true;
     btn.textContent = "Sending…";
     errEl.hidden = true;
     try {
+      const data = { ...Object.fromEntries(new FormData(inquiryForm)), ...(await guard.fields()) };
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -138,6 +221,7 @@ if (inquiryForm) {
       inquiryForm.hidden = true;
       successEl.hidden = false;
     } catch (err) {
+      guard.reset();
       errEl.textContent = err.message;
       errEl.hidden = false;
       btn.disabled = false;
@@ -176,22 +260,22 @@ if (offerEl) {
   }
 
   const offerForm = document.getElementById("offerForm");
-  document.getElementById("_offerT").value = Date.now().toString();
+  const offerGuard = protectForm(offerForm);
 
   offerForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const btn = document.getElementById("offerSubmit");
     const errEl = document.getElementById("offerError");
-    const data = Object.fromEntries(new FormData(offerForm));
-    // Carry the QR's UTM tags through so the lead email shows where it came from
-    const params = new URLSearchParams(location.search);
-    ["utm_source", "utm_medium", "utm_campaign"].forEach((k) => {
-      if (params.get(k)) data[k] = params.get(k);
-    });
     btn.disabled = true;
     btn.textContent = "One moment…";
     errEl.hidden = true;
     try {
+      const data = { ...Object.fromEntries(new FormData(offerForm)), ...(await offerGuard.fields()) };
+      // Carry the QR's UTM tags through so the lead email shows where it came from
+      const params = new URLSearchParams(location.search);
+      ["utm_source", "utm_medium", "utm_campaign"].forEach((k) => {
+        if (params.get(k)) data[k] = params.get(k);
+      });
       const res = await fetch("/api/offer", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -204,6 +288,7 @@ if (offerEl) {
       document.getElementById("offerCode").textContent = json.code || "Check your inbox";
       document.getElementById("offerReveal").hidden = false;
     } catch (err) {
+      offerGuard.reset();
       errEl.textContent = err.message;
       errEl.hidden = false;
       btn.disabled = false;

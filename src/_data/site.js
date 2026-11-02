@@ -9,6 +9,10 @@ module.exports = {
   email: "Amy@AmoreCoordination.com",
   phone: "(503) 502-9231",
   phoneRaw: "+15035029231",
+  // Cloudflare Turnstile site key (public). The matching secret lives only in Vercel
+  // env as TURNSTILE_SECRET_KEY. Empty = widget not rendered (and the server skips
+  // the check only while the secret is also unset).
+  turnstileSiteKey: "",
   areaServed: "Portland, Oregon & SW Washington",
   priceRange: "$$$",
   social: {

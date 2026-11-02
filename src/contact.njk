@@ -29,7 +29,7 @@ description: "Inquire with Amore Coordination — Portland, Oregon wedding plann
         <textarea name="message" rows="5" placeholder="Tell me about your vision…"></textarea>
       </div>
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-      <input type="hidden" name="_t" id="_formT" />
+      <div class="ts-slot" data-turnstile data-sitekey="{{ site.turnstileSiteKey }}"></div>
       <p id="formError" class="form-error" hidden></p>
       <button type="submit" class="btn btn--dark" id="formSubmit">Send Inquiry</button>
     </form>
@@ -39,7 +39,8 @@ description: "Inquire with Amore Coordination — Portland, Oregon wedding plann
     </div>
 
     <div class="contact__details">
-      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      {%- set em = site.email.split("@") %}
+      <a href="#inquiryForm" class="js-email" data-u="{{ em[0] | reverse }}" data-d="{{ em[1] | reverse }}">Email Amy</a>
       <a href="tel:{{ site.phoneRaw }}">{{ site.phone }}</a>
     </div>
   </div>

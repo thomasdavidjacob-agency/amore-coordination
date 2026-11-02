@@ -55,7 +55,7 @@ eleventyComputed:
           <input type="text" name="weddingDate" placeholder="Wedding date (if you have one)" />
         </div>
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-        <input type="hidden" name="_t" id="_offerT" />
+        <div class="ts-slot" data-turnstile data-sitekey="{{ site.turnstileSiteKey }}"></div>
         <p id="offerError" class="form-error" hidden></p>
         <button type="submit" class="btn btn--dark" id="offerSubmit">Reveal My Code</button>
       </form>

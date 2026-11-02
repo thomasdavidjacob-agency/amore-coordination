@@ -824,3 +824,7 @@ img { display: block; max-width: 100%; }
   .pgallery { column-count: 1; }
   .bloglist__grid { grid-template-columns: 1fr; }
 }
+
+/* Cloudflare Turnstile slot (interaction-only: empty unless a challenge is shown) */
+.ts-slot { margin: 4px 0 10px; }
+.ts-slot:empty { display: none; }
