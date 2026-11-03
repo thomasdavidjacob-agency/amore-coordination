@@ -1,0 +1,45 @@
+---
+layout: base.njk
+pagination:
+  data: offers
+  size: 1
+  alias: offer
+permalink: "/offer/{{ offer.slug }}/claimed/"
+eleventyExcludeFromCollections: true
+robots: "noindex, nofollow"
+eleventyComputed:
+  title: "Your {{ offer.event }} Code"
+  description: "Your private {{ offer.event }} guest offer."
+---
+{# Landing page after a successful claim — a real page load, so each claim counts as a
+   pageview in Vercel Analytics. The code is handed over in sessionStorage by main.js and
+   never rendered into the HTML; a direct visit just points to the inbox. #}
+
+<section class="page-hero">
+  <p class="section__eyebrow">{{ offer.event }} · Private Guest Offer</p>
+  <h1 class="page-hero__title">Your offer is saved</h1>
+  <p class="page-hero__sub">{{ offer.discount }} off {{ offer.appliesTo }}.</p>
+</section>
+
+<section class="contact offer__claim">
+  <div class="contact__inner">
+    <div class="offer__reveal" id="offerClaimed" data-slug="{{ offer.slug }}">
+      <p class="offer__reveal-label">Your code</p>
+      <p class="offer__code" id="offerCode">Check your inbox</p>
+      <p class="contact__lead">We've emailed it to you too. Mention it when you inquire to apply your {{ offer.discount }} savings.</p>
+      <a href="/contact/" class="btn btn--light">Start Your Inquiry</a>
+    </div>
+
+    <p class="offer__terms">
+      Valid for new bookings made by {{ offer.expires | pacificDate }} on {{ offer.appliesTo }}.{% if not offer.combinable %} Cannot be combined with other offers or discounts.{% endif %}
+    </p>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="cta-band__inner">
+    <p class="section__eyebrow">Explore</p>
+    <h2 class="section__title">See what's included in each package</h2>
+    <a href="/services/" class="btn btn--dark">View Services</a>
+  </div>
+</section>

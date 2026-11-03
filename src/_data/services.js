@@ -179,6 +179,10 @@ module.exports = {
       ],
       longDesc: [
         "Designed for couples who want an intimate celebration with every detail thoughtfully coordinated.",
+        // Draft 2026-11-02 for Amy's approval: built only from this package's own inclusions.
+        "A Micro Wedding is for couples planning a gathering of up to 50 guests who want the day to feel personal and unhurried, without carrying every logistic themselves. A smaller guest list doesn't mean fewer moving pieces. There's still a timeline to keep, vendors to coordinate, and a ceremony and reception that need to flow from one to the next.",
+        "We start with a complimentary consultation, then I'll guide you through three months of planning support with unlimited email help, vendor referrals suited to your style and budget, a personalized checklist, and a custom layout for your ceremony and reception. Before the day, we'll walk your venue together, I'll run a one-hour rehearsal, and I'll confirm final details, arrival times and logistics with every vendor.",
+        "On your wedding day, my assistant and I are on-site for eight hours, managing your ceremony, reception and every transition in between, so you can stay present with the people who matter most.",
       ],
       note: "Package pricing may vary based on location, guest count, and décor or setup.",
     },

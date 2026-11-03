@@ -21,3 +21,6 @@ Thumbs.db
 
 # Secrets (Turnstile secret, Resend key live only in Vercel env)
 .env*
+
+# Ad renders from tools/ad-floral.mjs
+ads/

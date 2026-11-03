@@ -16,7 +16,7 @@ module.exports = [
       "I hope you're enjoying the Black Pearl event. As a thank-you for being here, you're invited to an exclusive offer on your wedding coordination with Amore Coordination.",
     discount: "10%",
     code: "BLACKPEARL",
-    // TODO confirm with Amy: which packages, the deadline, and whether it stacks
+    // Terms confirmed 2026-11-02 (Phuong/Amy): Nov 30 deadline, any wedding package, not combinable.
     appliesTo: "any Amore Coordination wedding package",
     expires: "2026-11-30T23:59:00-08:00",
     combinable: false,
