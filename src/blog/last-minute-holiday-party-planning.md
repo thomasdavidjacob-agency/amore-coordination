@@ -2,7 +2,7 @@
 title: "Last-Minute Holiday Party Planning: What You Can Still Do"
 description: "Holiday party only weeks away? A coordinator's guide to last-minute holiday party planning: what to decide first, what to simplify and what to let go."
 date: 2026-11-17
-approved: false
+approved: true
 cluster: J
 service: /services/holiday-events/
 cover: "/assets/images/covers/Jennifer-and-Marlo.jpg"

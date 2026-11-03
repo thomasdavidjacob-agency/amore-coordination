@@ -2,7 +2,7 @@
 title: "Holiday Party Budget: The Categories to Plan"
 description: "Building a holiday party budget? These are the categories a coordinator plans for, including the ones hosts forget, and how to set priorities before you spend."
 date: 2026-11-21
-approved: false
+approved: true
 cluster: J
 service: /services/holiday-events/
 cover: "/assets/images/holiday-table.jpg"

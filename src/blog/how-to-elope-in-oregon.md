@@ -2,7 +2,7 @@
 title: "How to Elope in Oregon: A Planning Guide"
 description: "How to elope in Oregon: the license, the location, permits to ask about, the timeline and the details a coordinator handles so your day stays simple."
 date: 2026-11-22
-approved: false
+approved: true
 cluster: G
 pillar: true
 service: /services/pnw-elopement/

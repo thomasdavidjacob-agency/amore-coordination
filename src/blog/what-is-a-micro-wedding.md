@@ -2,7 +2,7 @@
 title: "What Is a Micro Wedding? A Guide for Portland Couples"
 description: "What is a micro wedding? A Portland coordinator explains how small is small, what changes, what stays the same, and how to decide if it fits your day."
 date: 2026-11-18
-approved: false
+approved: true
 cluster: F
 pillar: true
 service: /services/micro-wedding/

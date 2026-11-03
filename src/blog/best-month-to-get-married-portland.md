@@ -2,7 +2,7 @@
 title: "The Best Month to Get Married in Portland"
 description: "Which is the best month to get married in Portland? A coordinator compares the seasons using NWS climate normals, and the planning trade-offs behind each."
 date: 2026-11-20
-approved: false
+approved: true
 cluster: E
 pillar: true
 service: /services/#pkg-adoration

@@ -2,7 +2,7 @@
 title: "Holiday Party Planning in Portland: A Coordinator's Guide"
 description: "Planning a holiday party in Portland? A coordinator's guide to timing, venues, vendors, guest flow and rainy-season details, in the order they actually matter."
 date: 2026-11-16
-approved: false
+approved: true
 cluster: J
 pillar: true
 service: /services/holiday-events/

@@ -2,7 +2,7 @@
 title: "Choosing a Holiday Party Venue in Portland"
 description: "Choosing a Portland holiday party venue? The questions a coordinator asks about capacity, catering, rules, load-in and rain before anyone signs."
 date: 2026-11-19
-approved: false
+approved: true
 cluster: J
 service: /services/holiday-events/
 factsChecked: 2026-11-02
