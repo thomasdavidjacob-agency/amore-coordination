@@ -44,7 +44,7 @@
     "description": "{{ site.description }}",
     "url": "{{ site.url }}",
     "telephone": "{{ site.phoneRaw }}",
-    "image": "{{ site.ogImage }}",
+    "image": "{{ site.businessImage or site.ogImage }}",
     "priceRange": "{{ site.priceRange }}",
     "areaServed": "{{ site.areaServed }}",
     "founder": { "@type": "Person", "name": "{{ site.founder }}" },

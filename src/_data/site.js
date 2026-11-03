@@ -30,7 +30,8 @@ module.exports = {
   ],
   // Default social-share image (replace with a branded OG image when available).
   // Absolute URL needed for OG/Twitter — built from site.url at use time.
-  ogImage: "/assets/images/hero/home-hero-Lisa-Bryan.jpg",
+  ogImage: "/assets/images/og-default.jpg", // branded 1200x630 share card (draft b, approved 2026-11-02)
+  businessImage: "/assets/images/hero/home-hero-Lisa-Bryan.jpg", // real photo for the LocalBusiness schema
   heroSlides: [
     "/assets/images/hero/home-hero-Lisa-Bryan.jpg",
     "/assets/images/hero/home-hero-Royeric-Katie.jpg",
