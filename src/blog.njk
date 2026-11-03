@@ -11,13 +11,19 @@ description: "Honest, helpful guidance for couples planning a wedding in Oregon 
 </section>
 
 <section class="bloglist">
+  {% if collections.liveClusters.length %}
+  <nav class="topics" aria-label="Browse by topic">
+    <span class="topics__label">Browse by topic</span>
+    {% for t in collections.liveClusters %}<a class="topics__chip" href="/blog/topic/{{ t.slug }}/">{{ t.name }}</a>{% endfor %}
+  </nav>
+  {% endif %}
   {% if collections.blog.length %}
   <div class="bloglist__grid">
     {% for post in collections.blog %}
     <a class="postcard" href="{{ post.url }}">
-      {% if post.data.cover %}<div class="postcard__img"><img src="{{ post.data.cover }}" alt="{{ post.data.title }}" loading="lazy" /></div>{% endif %}
+      {% if post.data.cover %}<div class="postcard__img"><img src="{{ post.data.cover }}" alt="{{ post.data.coverAlt or post.data.title }}" loading="lazy" /></div>{% endif %}
       <div class="postcard__body">
-        <p class="postcard__date">{{ post.date | readableDate }}</p>
+        {% if post.data.cluster and clusters[post.data.cluster] %}<p class="postcard__date">{{ clusters[post.data.cluster].name }}</p>{% endif %}
         <h2 class="postcard__title">{{ post.data.title }}</h2>
         <p class="postcard__excerpt">{{ post.data.description }}</p>
         <span class="postcard__more">Read More →</span>

@@ -94,6 +94,16 @@ description: "Holiday event coordination in Portland, Oregon from Amore Coordina
   <p>For events requiring additional planning, design, vendor sourcing, or extended event-day coverage, customized planning packages are available.</p>
 </section>
 
+{% set journal = collections.blog | postsForService("/services/holiday-events/", 3) %}
+{% if journal.length %}
+<section class="journal-strip">
+  <p class="section__eyebrow">From the Journal</p>
+  <ul>
+    {% for p in journal %}<li><a href="{{ p.url }}">{{ p.data.title }}</a></li>{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
 <section class="cta-band">
   <div class="cta-band__inner">
     <p class="section__eyebrow">Limited Availability</p>

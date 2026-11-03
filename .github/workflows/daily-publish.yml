@@ -1,0 +1,39 @@
+# Publishes the next blog-drip post each morning with no human involved.
+#
+# Eleventy only builds blog posts whose (internal) date <= today (Pacific) and that Amy approved (lib/drip.js), so a
+# fresh Vercel build each morning is all it takes. This job just pings a Vercel
+# Deploy Hook. Setup: Vercel project amore-coordination > Settings > Git > Deploy Hooks ("daily-blog", branch main).
+#
+# Repo secret required: VERCEL_DEPLOY_HOOK_URL
+name: Daily publish
+
+on:
+  schedule:
+    # 13:00 UTC = 6:00 AM PDT / 5:00 AM PST. GitHub cron is UTC-only and may
+    # start a few minutes late under load. Either way it runs after midnight
+    # Pacific, so "today" has already rolled over for the build.
+    - cron: "0 13 * * *"
+  workflow_dispatch: {}
+
+permissions: {}
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel production rebuild
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          # Strip stray whitespace/CR — a secret pasted from the Windows clipboard ends in \r\n.
+          HOOK=$(printf '%s' "$HOOK" | tr -d '[:space:]')
+          case "$HOOK" in
+            https://api.vercel.com/*) ;;
+            "") echo "::error::VERCEL_DEPLOY_HOOK_URL secret is not set"; exit 1 ;;
+            *) echo "::error::VERCEL_DEPLOY_HOOK_URL is not a Vercel deploy hook URL (starts with '${HOOK:0:12}')"; exit 1 ;;
+          esac
+          if [ -z "$HOOK" ]; then
+            echo "::error::VERCEL_DEPLOY_HOOK_URL secret is not set"
+            exit 1
+          fi
+          curl -fsS -X POST "$HOOK" -o /dev/null -w "Deploy hook responded %{http_code}\n"
