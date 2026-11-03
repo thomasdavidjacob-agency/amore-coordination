@@ -1,0 +1,55 @@
+---
+layout: base.njk
+pagination:
+  data: collections.liveClusters
+  size: 1
+  alias: topic
+  addAllPagesToCollections: true
+permalink: "/blog/topic/{{ topic.slug }}/"
+eleventyComputed:
+  title: "{{ topic.name }}"
+  description: "{{ topic.blurb }}"
+---
+{#- Hub page per topic cluster; only clusters with a live post get one. No dates shown. -#}
+<section class="page-hero">
+  <p class="section__eyebrow"><a href="/blog/" class="back-link">The Journal</a></p>
+  <h1 class="page-hero__title">{{ topic.name }}</h1>
+  <p class="page-hero__sub">{{ topic.blurb }}</p>
+</section>
+
+<section class="bloglist">
+  <div class="bloglist__grid">
+    {% for post in topic.posts %}
+    <a class="postcard" href="{{ post.url }}">
+      {% if post.data.cover %}<div class="postcard__img"><img src="{{ post.data.cover }}" alt="{{ post.data.coverAlt or post.data.title }}" loading="lazy" /></div>{% endif %}
+      <div class="postcard__body">
+        {% if post.data.pillar %}<p class="postcard__date">Start here</p>{% endif %}
+        <h2 class="postcard__title">{{ post.data.title }}</h2>
+        <p class="postcard__excerpt">{{ post.data.description }}</p>
+        <span class="postcard__more">Read More →</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="cta-band__inner">
+    <p class="section__eyebrow">Planning Something?</p>
+    <h2 class="section__title">I'd love to hear about it.</h2>
+    <a href="{{ topic.service }}" class="btn btn--dark">See How I Can Help</a>
+    <p class="svc__back"><a href="/contact/">Or start an inquiry</a></p>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ '/' | absUrl(site.url) }}" },
+    { "@type": "ListItem", "position": 2, "name": "Journal", "item": "{{ '/blog/' | absUrl(site.url) }}" },
+    { "@type": "ListItem", "position": 3, "name": {{ topic.name | dump | safe }}, "item": "{{ page.url | absUrl(site.url) }}" }
+  ]
+}
+</script>

@@ -72,6 +72,16 @@ eleventyComputed:
   <p class="incl__note">{{ pkg.note or services.packageNote }}</p>
 </section>
 
+{% set journal = collections.blog | postsForService("/services/" + pkg.slug + "/", 3) %}
+{% if journal.length %}
+<section class="journal-strip">
+  <p class="section__eyebrow">From the Journal</p>
+  <ul>
+    {% for p in journal %}<li><a href="{{ p.url }}">{{ p.data.title }}</a></li>{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
 <section class="cta-band">
   <div class="cta-band__inner">
     <p class="section__eyebrow">Ready When You Are</p>
