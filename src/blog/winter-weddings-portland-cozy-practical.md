@@ -21,7 +21,7 @@ faq:
     a: "Yes. A coordinator builds the timeline, manages the weather backup, confirms vendor arrival times and runs the day so you can focus on each other."
 ---
 
-I love a winter wedding. There is something about a room full of candlelight, warm layers and people who came in from the cold that makes a celebration feel close. And winter dates can be easier to find than the busiest months, which matters to many couples.
+I love a winter wedding. There is something about a room full of candlelight, warm layers and people who came in from the cold that makes a celebration feel close. And if you have your heart set on a particular venue, it is worth asking what winter dates they have open.
 
 It is also a season that rewards a practical mind. Days are short, the weather does not cooperate on request and guests arrive wet. None of that is a reason to avoid it. It is a reason to plan it the way it deserves. This guide covers what I would think through, in order. If you are still choosing a season, start with my guide to [the best month to get married in Portland](/blog/best-month-to-get-married-portland/).
 
@@ -40,7 +40,7 @@ A normal is an average over thirty years, not a forecast. Any single day can be 
 Honestly, there are several, and they are worth naming:
 
 - **Atmosphere.** Candles, evergreens, warm lighting and rich colors feel natural in the season, and you do not need much decor to set the mood.
-- **Flexibility on dates.** Winter dates can be easier to find, so you may have more choice of day and more room to ask questions of venues and vendors.
+- **Flexibility on dates.** Ask venues and vendors which winter dates they have open; you may find more choice of day than you expect.
 - **An indoor, intimate feel.** If you like the idea of a gathering that feels close, winter does that on its own.
 - **Seasonal food and drink.** Warm dishes, hot drinks and a menu built around the season are a treat.
 
