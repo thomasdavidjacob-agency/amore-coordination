@@ -2,7 +2,7 @@
 title: "Winter Elopements in Oregon: Planning for Short Days"
 description: "Planning a winter elopement in Oregon? How to choose a location, work with short daylight and weather, and ask the right agencies before you go."
 date: 2026-11-28
-approved: false
+approved: true
 cluster: G
 service: /services/pnw-elopement/
 cover: "/assets/images/covers/Lisa-and-Bryan-Color.jpg"

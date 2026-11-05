@@ -2,7 +2,7 @@
 title: "Holiday Party Entertainment, Music and Activities"
 description: "Holiday party ideas that work: how to choose music, activities and a program for your guests, and how to pace the evening so it does not drag or rush."
 date: 2026-11-25
-approved: false
+approved: true
 cluster: J
 service: /services/holiday-events/
 cover: "/assets/images/covers/Kristie-and-Zack-Wedding.jpg"

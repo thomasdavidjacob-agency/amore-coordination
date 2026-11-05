@@ -2,7 +2,7 @@
 title: "Wedding Planner, Coordinator or Designer: What's the Difference?"
 description: "Wedding planner vs coordinator vs designer: what each role does, where they overlap and how to decide which kind of help your Portland wedding needs."
 date: 2026-11-24
-approved: false
+approved: true
 cluster: A
 pillar: true
 service: /services/#pkg-adoration

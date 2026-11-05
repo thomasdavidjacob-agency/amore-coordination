@@ -2,7 +2,7 @@
 title: "Holiday Party Etiquette for Hosts: What Guests Notice"
 description: "Holiday party etiquette for hosts: invitations, RSVPs, dietary needs, plus-ones, drinks, toasts and a graceful goodbye, from a Portland event coordinator."
 date: 2026-11-26
-approved: false
+approved: true
 cluster: J
 service: /services/holiday-events/
 cover: "/assets/images/holiday-table.jpg"

@@ -2,7 +2,7 @@
 title: "Hosting a Private Holiday Party at Home: A Planner's Guide"
 description: "Hosting a holiday party at home? A Portland coordinator on space, flow, parking, food, rentals and the timeline that lets you enjoy your own party."
 date: 2026-11-23
-approved: false
+approved: true
 cluster: J
 service: /services/holiday-events/
 cover: "/assets/images/covers/Jeanna-and-Michael.jpg"

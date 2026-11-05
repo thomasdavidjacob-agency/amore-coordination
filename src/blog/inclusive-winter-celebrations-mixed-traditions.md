@@ -2,7 +2,7 @@
 title: "Inclusive Winter Celebrations for Mixed Traditions"
 description: "Planning an inclusive holiday party for guests with different traditions? A coordinator's guide to timing, food, decor, invitations and kind communication."
 date: 2026-11-29
-approved: false
+approved: true
 cluster: J
 service: /services/holiday-events/
 cover: "/assets/images/covers/Katie-and-Royeric2.jpg"

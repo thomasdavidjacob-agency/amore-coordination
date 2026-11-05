@@ -2,7 +2,7 @@
 title: "Winter Weddings in Portland: Cozy and Practical"
 description: "Planning a winter wedding in Portland? What the climate record says, how short days change your timeline, and the practical details that keep guests cozy."
 date: 2026-11-27
-approved: false
+approved: true
 cluster: E
 service: /services/#pkg-adoration
 cover: "/assets/images/covers/Karen-and-Nate-3.jpg"
