@@ -5,8 +5,9 @@ date: 2026-11-27
 approved: true
 cluster: E
 service: /services/#pkg-adoration
-cover: "/assets/images/covers/Karen-and-Nate-3.jpg"
-coverAlt: "A bride and groom laughing as they walk under clear umbrellas through falling snow, with guests behind them"
+cover: "/assets/images/blog/winter-weddings-portland-cozy-practical.jpg"
+coverAlt: "A bride holding a bouquet nestles against the groom under a clear umbrella, seen through rain-speckled glass"
+coverSource: "https://unsplash.com/photos/fGPGd9PFd3w (Unsplash License)"
 factsChecked: 2026-11-03
 faq:
   - q: "Is winter a good time to get married in Portland?"

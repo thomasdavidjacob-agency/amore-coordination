@@ -6,8 +6,9 @@ approved: true
 cluster: G
 pillar: true
 service: /services/pnw-elopement/
-cover: "/assets/images/covers/Madison-and-Tyler.jpg"
-coverAlt: "A couple embracing in a golden meadow with evergreen forest and mountains behind them"
+cover: "/assets/images/blog/how-to-elope-in-oregon.jpg"
+coverAlt: "A bride and groom kissing on a path beneath towering moss-draped trees and ferns in a green rainforest"
+coverSource: "https://unsplash.com/photos/iz34IGBPXag (Unsplash License)"
 factsChecked: 2026-11-02
 faq:
   - q: "Do you need a marriage license to elope in Oregon?"

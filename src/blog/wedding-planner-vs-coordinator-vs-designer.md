@@ -6,8 +6,9 @@ approved: true
 cluster: A
 pillar: true
 service: /services/#pkg-adoration
-cover: "/assets/images/covers/Mary-Kate-abd-Marcus.jpg"
-coverAlt: "A bride and groom laughing with their wedding party crowded close around them in front of a floral arch"
+cover: "/assets/images/blog/wedding-planner-vs-coordinator-vs-designer.jpg"
+coverAlt: "An outdoor sweetheart table with a sequin tablecloth, a garland of pink peonies and greenery, and green taper candles in brass holders"
+coverSource: "https://unsplash.com/photos/IAXH4tMEx_s (Unsplash License)"
 faq:
   - q: "What is the difference between a wedding planner and a wedding coordinator?"
     a: "A planner usually helps over a longer stretch of planning, with research, vendor selection and decisions. A coordinator usually focuses on logistics and the wedding day itself. Many professionals offer both, so ask what each package actually includes."

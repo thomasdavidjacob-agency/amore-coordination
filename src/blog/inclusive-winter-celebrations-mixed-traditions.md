@@ -5,8 +5,9 @@ date: 2026-11-29
 approved: true
 cluster: J
 service: /services/holiday-events/
-cover: "/assets/images/covers/Katie-and-Royeric2.jpg"
-coverAlt: "A couple smiling at each other in a green garden, she holding a bright bouquet of orange and red flowers"
+cover: "/assets/images/blog/inclusive-winter-celebrations-mixed-traditions.jpg"
+coverAlt: "A lit white candle with pine cones, red berries and frosted greenery, with warm string lights glowing behind"
+coverSource: "https://unsplash.com/photos/Vg_B61t8EFs (Unsplash License)"
 faq:
   - q: "How do I plan a holiday party that includes guests with different traditions?"
     a: "Ask people what matters to them instead of assuming, name the gathering for what it is, and keep the decor, food and program welcoming to everyone. A few clear choices go a long way."

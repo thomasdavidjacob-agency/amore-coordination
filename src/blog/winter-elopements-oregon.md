@@ -5,8 +5,9 @@ date: 2026-11-28
 approved: true
 cluster: G
 service: /services/pnw-elopement/
-cover: "/assets/images/covers/Lisa-and-Bryan-Color.jpg"
-coverAlt: "A bride and groom holding hands on a forest path between tall trees and ferns"
+cover: "/assets/images/blog/winter-elopements-oregon.jpg"
+coverAlt: "A couple in winter coats kissing as snow falls in front of snow-laden evergreen branches"
+coverSource: "https://unsplash.com/photos/Oxw9VES8b0Q (Unsplash License)"
 factsChecked: 2026-11-03
 faq:
   - q: "Can you elope in Oregon in the winter?"

@@ -5,8 +5,9 @@ date: 2026-11-25
 approved: true
 cluster: J
 service: /services/holiday-events/
-cover: "/assets/images/covers/Kristie-and-Zack-Wedding.jpg"
-coverAlt: "Guests seated in an outdoor courtyard under strings of warm lights as a couple stands for their ceremony"
+cover: "/assets/images/blog/holiday-party-entertainment-music-activities.jpg"
+coverAlt: "A laughing couple dancing on a crowded evening dance floor under warm hanging lights"
+coverSource: "https://unsplash.com/photos/DBkpJvEkuew (Unsplash License)"
 faq:
   - q: "How much entertainment does a holiday party need?"
     a: "Less than most hosts expect. Good food, comfortable seating, a clear welcome and one memorable moment carry most parties. Add activities only when they fit your guests and your room."

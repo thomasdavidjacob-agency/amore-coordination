@@ -6,8 +6,9 @@ approved: true
 cluster: J
 service: /services/holiday-events/
 factsChecked: 2026-11-02
-cover: "/assets/images/holiday-table.jpg"
-coverAlt: "Long reception table set with candles, gold goblets and autumn flowers in a softly lit room"
+cover: "/assets/images/blog/choosing-holiday-party-venue-portland.jpg"
+coverAlt: "A stone-walled private dining room with long tables set in white linen, taper candles, roses and string lights"
+coverSource: "https://unsplash.com/photos/XgYb1OXCDG8 (Unsplash License)"
 faq:
   - q: "What should I ask a holiday party venue before booking?"
     a: "Ask about real capacity for your format, what is included, catering and alcohol rules, how late you can stay, when vendors can load in and out, and what the plan is for parking and rain."

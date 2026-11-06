@@ -5,8 +5,9 @@ date: 2026-11-23
 approved: true
 cluster: J
 service: /services/holiday-events/
-cover: "/assets/images/covers/Jeanna-and-Michael.jpg"
-coverAlt: "A group of friends in matching suits and dresses standing arm in arm, laughing, in front of a dark garage door"
+cover: "/assets/images/blog/hosting-private-holiday-party-home.jpg"
+coverAlt: "Friends relaxing with drinks on a sofa in a living room with a lit, decorated tree, wrapped gifts and candles"
+coverSource: "https://unsplash.com/photos/uiBzmQWrYhw (Unsplash License)"
 faq:
   - q: "How many guests can I comfortably host at home?"
     a: "Fewer than you think. Count the places people can actually sit, plus the standing room around the food, and plan from that number instead of the size of your guest list."

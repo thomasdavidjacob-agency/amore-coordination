@@ -6,8 +6,9 @@ approved: true
 cluster: F
 pillar: true
 service: /services/micro-wedding/
-cover: "/assets/images/covers/Heather-and-John.jpg"
-coverAlt: "A groom kissing his bride's forehead on a garden path, holding a pink and white bouquet"
+cover: "/assets/images/blog/what-is-a-micro-wedding.jpg"
+coverAlt: "A small outdoor ceremony with a few rows of wooden chairs, candles along the aisle and a round floral arch among evergreens"
+coverSource: "https://unsplash.com/photos/iZlVIHqZJqE (Unsplash License)"
 factsChecked: 2026-11-02
 faq:
   - q: "How many guests is a micro wedding?"

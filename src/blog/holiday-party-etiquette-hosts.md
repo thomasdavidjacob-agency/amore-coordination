@@ -5,8 +5,9 @@ date: 2026-11-26
 approved: true
 cluster: J
 service: /services/holiday-events/
-cover: "/assets/images/holiday-table.jpg"
-coverAlt: "A holiday reception table set with candles, gold goblets, flowers and printed place cards"
+cover: "/assets/images/blog/holiday-party-etiquette-hosts.jpg"
+coverAlt: "Friends raising glasses at a candlelit table set with greenery and small plates"
+coverSource: "https://unsplash.com/photos/jlXtAvGx_hg (Unsplash License)"
 faq:
   - q: "How far ahead should I send holiday party invitations?"
     a: "As early as you can, since December calendars fill quickly. Include the day, start and end time, location, dress expectations and how to RSVP, and set a reply-by date."
