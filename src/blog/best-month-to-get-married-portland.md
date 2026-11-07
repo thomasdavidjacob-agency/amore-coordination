@@ -6,8 +6,9 @@ approved: true
 cluster: E
 pillar: true
 service: /services/#pkg-adoration
-cover: "/assets/images/covers/Karen-and-Nate-3.jpg"
-coverAlt: "A bride and groom laughing as they walk under clear umbrellas through falling snow, with guests behind them"
+cover: "/assets/images/blog/best-month-to-get-married-portland.jpg"
+coverAlt: "A bride and groom walking hand in hand down a sunlit path through lush green foliage"
+coverSource: "https://unsplash.com/photos/divFrH3p6nc (Unsplash License)"
 factsChecked: 2026-11-02
 faq:
   - q: "What is the best month to get married in Portland?"

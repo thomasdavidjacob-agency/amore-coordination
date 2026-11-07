@@ -5,8 +5,9 @@ date: 2026-11-21
 approved: true
 cluster: J
 service: /services/holiday-events/
-cover: "/assets/images/holiday-table.jpg"
-coverAlt: "A festive reception table with candles, gold glassware, flowers and printed menus at each place"
+cover: "/assets/images/blog/holiday-party-budget-categories.jpg"
+coverAlt: "An open blank notebook, cream envelopes, a rose-gold pen and an espresso with cookies on white marble, with fairy lights"
+coverSource: "https://unsplash.com/photos/oy_l7T2nUlU (Unsplash License)"
 faq:
   - q: "What are the main categories in a holiday party budget?"
     a: "Venue, food and drink, staffing, rentals, decor, entertainment, photography, printed items, transportation and parking, and a contingency. Coordination and tips are worth listing too."

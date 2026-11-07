@@ -5,8 +5,9 @@ date: 2026-11-17
 approved: true
 cluster: J
 service: /services/holiday-events/
-cover: "/assets/images/covers/Jennifer-and-Marlo.jpg"
-coverAlt: "A couple sharing a celebratory kiss in front of cheering guests holding up phones"
+cover: "/assets/images/blog/last-minute-holiday-party-planning.jpg"
+coverAlt: "A holiday table with a deep green cloth, cream plates, copper cutlery and a centerpiece of pine garland and a small lantern"
+coverSource: "https://unsplash.com/photos/O1-Oj8KBPGE (Unsplash License)"
 faq:
   - q: "Is it too late to plan a holiday party in December?"
     a: "Usually not, but your choices narrow. A smaller guest list, a simpler format and a flexible date give you the best chance of finding a room and vendors who are still available."

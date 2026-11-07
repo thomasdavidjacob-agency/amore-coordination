@@ -6,8 +6,9 @@ approved: true
 cluster: J
 pillar: true
 service: /services/holiday-events/
-cover: "/assets/images/holiday-table.jpg"
-coverAlt: "A candlelit holiday reception table with gold goblets, autumn florals and printed place cards"
+cover: "/assets/images/blog/holiday-party-planning-portland-coordinators-guide.jpg"
+coverAlt: "A long holiday dinner table with velvet chairs, black taper candles, red berries and gold-rimmed plates under a crystal chandelier"
+coverSource: "https://unsplash.com/photos/9b1Jum6uw2g (Unsplash License)"
 factsChecked: 2026-11-02
 faq:
   - q: "How far ahead should I start planning a holiday party in Portland?"
