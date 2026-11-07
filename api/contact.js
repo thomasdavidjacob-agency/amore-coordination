@@ -166,10 +166,10 @@ module.exports = async function handler(req, res) {
       from: 'Amore Coordination <amy@amorecoordination.com>',
       replyTo: email,
       to: 'Amy@AmoreCoordination.com',
-      subject: `${pitch ? '[Possible spam] ' : ''}New Inquiry — ${name.replace(/[\r\n]+/g, ' ').trim()}`,
+      subject: `${pitch ? '[Possible spam] ' : ''}New Event Inquiry — ${name.replace(/[\r\n]+/g, ' ').trim()}`,
       html: `
         <div style="font-family:Georgia,serif;max-width:600px;margin:0 auto;padding:32px;background:#fbf9f4;border-radius:8px;">
-          <h2 style="color:#6e3d63;margin-bottom:24px;font-size:24px;">New Wedding Inquiry</h2>
+          <h2 style="color:#6e3d63;margin-bottom:24px;font-size:24px;">New Event Inquiry</h2>
           <table style="width:100%;border-collapse:collapse;">
             <tr><td style="padding:8px 0;color:#5c554d;font-size:13px;width:120px;vertical-align:top;"><strong>Name</strong></td><td style="padding:8px 0;color:#2b2723;">${safeName}</td></tr>
             <tr><td style="padding:8px 0;color:#5c554d;font-size:13px;vertical-align:top;"><strong>Email</strong></td><td style="padding:8px 0;color:#2b2723;"><a href="mailto:${safeEmail}" style="color:#6e3d63;">${safeEmail}</a></td></tr>
