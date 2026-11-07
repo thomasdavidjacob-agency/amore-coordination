@@ -127,10 +127,11 @@ module.exports = async function handler(req, res) {
       from: FROM,
       replyTo: email,
       to: AMY,
-      subject: `${offer.event} offer claimed: ${name.replace(/[\r\n]+/g, ' ').trim()}`,
+      subject: `New Event Inquiry — ${name.replace(/[\r\n]+/g, ' ').trim()} (${offer.event} offer claimed)`,
       html: `
         <div style="font-family:Georgia,serif;max-width:600px;margin:0 auto;padding:32px;background:#fbf9f4;border-radius:8px;">
-          <h2 style="color:#6e3d63;margin-bottom:24px;font-size:24px;">${esc(offer.event)} Offer Claimed</h2>
+          <h2 style="color:#6e3d63;margin-bottom:24px;font-size:24px;">New Event Inquiry</h2>
+          <p style="color:#5c554d;margin:-12px 0 20px;">${esc(offer.event)} offer claimed</p>
           <table style="width:100%;border-collapse:collapse;">
             ${row('Name', safeName)}
             ${row('Email', `<a href="mailto:${esc(email)}" style="color:#6e3d63;">${esc(email)}</a>`)}
