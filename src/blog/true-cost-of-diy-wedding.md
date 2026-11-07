@@ -2,7 +2,9 @@
 title: "The True Cost of a DIY Wedding: What You Save vs. What You Lose"
 description: "DIY weddings promise savings — but the real cost isn't always on the receipt. An honest look at what a DIY wedding gives you, and what it quietly takes."
 date: 2026-06-27
-cover: "/assets/images/hero/home-hero-Lisa-Bryan.jpg"
+cover: "/assets/images/blog/true-cost-of-diy-wedding.jpg"
+coverAlt: "Mason jars wrapped in burlap and lace, filled with baby's breath, on stacked rustic wood slices"
+coverSource: "https://unsplash.com/photos/g3I1t5ybC_s (Unsplash License)"
 ---
 
 Every couple I meet has at least paused on the same question: *how much of this can we do ourselves?* It's a fair thing to ask. Weddings aren't cheap, and DIY promises a kind of noble savings — you keep the money, you get the wedding, everyone wins.

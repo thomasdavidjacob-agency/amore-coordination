@@ -2,7 +2,9 @@
 title: "Should You Ask a Friend to Coordinate Your Wedding? Read This First"
 description: "Asking a friend or family member to coordinate your wedding sounds like the perfect solution. Here's what really happens when they say yes — and a kinder alternative."
 date: 2026-06-06
-cover: "/assets/images/covers/Karen-and-Nate-3.jpg"
+cover: "/assets/images/blog/friend-coordinate-your-wedding.jpg"
+coverAlt: "A smiling bride with her bridesmaids in black gowns holding blush and ivory bouquets among tall forest trees"
+coverSource: "https://unsplash.com/photos/jWW3vn9hpFg (Unsplash License)"
 ---
 
 I've had this exact conversation with more couples than I can count. They tell me their budget is tight, so they're going to ask their most organized friend — the sister with the color-coded spreadsheets, the college roommate who ran the sorority events, the cousin who's *"basically already a planner anyway."*

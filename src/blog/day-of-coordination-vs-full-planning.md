@@ -2,7 +2,9 @@
 title: "Day-of Coordination vs. Full Planning: Which Do You Actually Need?"
 description: "Confused about the difference between day-of coordination, partial planning, and full-service wedding planning? Here's a clear, honest guide to choosing the right level of support."
 date: 2026-04-29
-cover: "/assets/images/hero/home-slideshow-Danielle-Travis.jpg"
+cover: "/assets/images/blog/day-of-coordination-vs-full-planning.jpg"
+coverAlt: "Guests seated under cream parasols watch a couple at a wooden table beneath a vine-covered pergola in a garden ceremony"
+coverSource: "https://unsplash.com/photos/f7e3L3Fji9I (Unsplash License)"
 ---
 
 When couples first reach out, one of the most common sources of confusion isn't *whether* to hire help — it's figuring out *how much* help they need. Day-of coordination? Partial planning? Full service? The terms get used loosely across the industry, and the price differences are significant, so it's worth understanding what you're actually choosing between.

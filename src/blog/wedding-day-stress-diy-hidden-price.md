@@ -2,7 +2,9 @@
 title: "The Hidden Price of Wedding Day Stress (And Who Actually Pays It)"
 description: "DIY weddings don't remove stress — they relocate it. Here's who actually ends up carrying it on the day, and what it quietly costs your wedding."
 date: 2026-05-16
-cover: "/assets/images/covers/Danielle-and-Travis-Wedding.jpg"
+cover: "/assets/images/blog/wedding-day-stress-diy-hidden-price.jpg"
+coverAlt: "A bride with eyes lowered holds a white orchid bouquet close to her face beneath a soft veil"
+coverSource: "https://unsplash.com/photos/euSKEeLxqfI (Unsplash License)"
 ---
 
 Something I say a lot to couples who are on the fence about hiring help: DIY doesn't reduce wedding stress. It just **moves it somewhere.** The question isn't whether the stress exists — it's who's carrying it, and at what cost.
