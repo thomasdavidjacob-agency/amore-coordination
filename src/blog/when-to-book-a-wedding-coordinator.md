@@ -2,7 +2,9 @@
 title: "When Should You Book Your Wedding Coordinator? A Realistic Timeline"
 description: "Wondering when to hire a wedding coordinator for your Oregon wedding? Here's an honest month-by-month look at the right time to book — and why the best dates go first."
 date: 2026-05-26
-cover: "/assets/images/hero/home-hero-Madie-Tyler.jpg"
+cover: "/assets/images/blog/when-to-book-a-wedding-coordinator.jpg"
+coverAlt: "A man slides a diamond engagement ring onto a woman's finger in warm soft light"
+coverSource: "https://unsplash.com/photos/IXLS59CTgDE (Unsplash License)"
 ---
 
 If you've just gotten engaged, first — congratulations. Take a moment to enjoy it before the spreadsheets arrive. And when you're ready, one of the smartest early questions you can ask is this one: *when should we actually book a coordinator?*

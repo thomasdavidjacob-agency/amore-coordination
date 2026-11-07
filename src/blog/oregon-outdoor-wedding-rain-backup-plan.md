@@ -2,7 +2,9 @@
 title: "Planning an Outdoor Wedding in Oregon: Your Honest Rain Backup Plan"
 description: "Dreaming of an outdoor Oregon or SW Washington wedding? Here's how to plan a rain backup that protects your day without dimming the magic — from a local coordinator."
 date: 2026-05-13
-cover: "/assets/images/hero/home-hero-Royeric-Katie.jpg"
+cover: "/assets/images/blog/oregon-outdoor-wedding-rain-backup-plan.jpg"
+coverAlt: "A long wooden table with rattan chairs and a small bouquet under a cream sailcloth tent strung with lights"
+coverSource: "https://unsplash.com/photos/vlatLzeb4bw (Unsplash License)"
 ---
 
 There's nothing quite like an outdoor wedding in the Pacific Northwest. The light through the trees, a ceremony framed by the Gorge or a garden in full bloom, that soft golden hour we get out here — it's the reason so many couples choose Oregon and Southwest Washington for their day.

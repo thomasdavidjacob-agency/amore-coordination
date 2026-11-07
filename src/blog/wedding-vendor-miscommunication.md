@@ -2,7 +2,9 @@
 title: "How Vendor Miscommunication Quietly Wrecks DIY Wedding Days"
 description: "Wedding vendors don't fail — coordination between them does. Here's how vendor miscommunication sneaks into DIY wedding days and how to prevent it."
 date: 2026-06-13
-cover: "/assets/images/hero/home-hero-AOW.jpg"
+cover: "/assets/images/blog/wedding-vendor-miscommunication.jpg"
+coverAlt: "A videographer films a bride and groom embracing under a wooden pavilion by a pond"
+coverSource: "https://unsplash.com/photos/CxoEeNkJwUA (Unsplash License)"
 ---
 
 Here's something couples don't hear often enough: on almost every wedding day where something goes wrong, the vendors themselves weren't the problem. Every one of them was excellent at their job. What broke was the **coordination between them.**

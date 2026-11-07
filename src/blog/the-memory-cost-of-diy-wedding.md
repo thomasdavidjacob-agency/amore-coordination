@@ -2,7 +2,9 @@
 title: "The One DIY Wedding Cost No One Warns You About: The Memory"
 description: "Every DIY wedding cost eventually shows up somewhere — but the most expensive one only appears months later, in how you remember the day."
 date: 2026-05-09
-cover: "/assets/images/covers/Asheley-and-Ben.jpg"
+cover: "/assets/images/blog/the-memory-cost-of-diy-wedding.jpg"
+coverAlt: "A bride in a lace gown rests her forehead against the groom's as her veil drifts around them outdoors"
+coverSource: "https://unsplash.com/photos/6pzT7Hpo5Tc (Unsplash License)"
 ---
 
 Most conversations about DIY wedding savings focus on dollars: what you saved on décor, what you saved on planning, what you saved on the coordinator you didn't hire. Those are real numbers, and they're the easiest ones to see.

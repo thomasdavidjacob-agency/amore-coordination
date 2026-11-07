@@ -2,7 +2,9 @@
 title: "Winging It on the Wedding Day: Why It Almost Never Feels Free"
 description: "Skipping a wedding coordinator to 'wing it' on the day sounds like the ultimate savings. Here's what actually happens — and why most couples wish they hadn't."
 date: 2026-05-23
-cover: "/assets/images/covers/Kristie-and-Zack-Wedding.jpg"
+cover: "/assets/images/blog/winging-it-wedding-day-hidden-cost.jpg"
+coverAlt: "Guests line a flower-edged aisle as a couple stands beneath a white rose and greenery arch inside a clear tent"
+coverSource: "https://unsplash.com/photos/Z1c1D2FnDrE (Unsplash License)"
 ---
 
 Every once in a while, a couple tells me confidently that they've decided to just "wing" their wedding day. No coordinator, no strict timeline, no vendor point person. *"We're pretty chill,"* they say. *"We just want it to feel natural."*

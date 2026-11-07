@@ -2,7 +2,9 @@
 title: "DIY Wedding Décor Looks Cheaper — Until You Actually Add It Up"
 description: "Pinterest makes DIY wedding décor look thrifty and beautiful. The real math — materials, tools, time, storage, setup — usually tells a different story."
 date: 2026-05-30
-cover: "/assets/images/covers/Heather-and-John.jpg"
+cover: "/assets/images/blog/diy-wedding-decor-real-cost.jpg"
+coverAlt: "A hand lifts a pink flower stem above loose blooms, satin ribbons and a wood round on a rustic table"
+coverSource: "https://unsplash.com/photos/lXMUvjOtHb4 (Unsplash License)"
 ---
 
 DIY décor is where most couples first fall in love with the idea of doing their wedding themselves. It's easy to see why. Pinterest is full of beautiful, personal, hand-crafted setups that look like they cost a fraction of the professional version. The couple in the photo looks so proud. You look at the caption — "we made everything ourselves!" — and think, *we could do this.*

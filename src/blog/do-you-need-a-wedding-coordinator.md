@@ -2,7 +2,9 @@
 title: "Do You Really Need a Wedding Coordinator? An Honest Answer"
 description: "Wondering whether a day-of coordinator is worth it for your Oregon wedding? Here's an honest look at what changes when someone's truly holding the day for you."
 date: 2026-05-20
-cover: "/assets/images/hero/home-hero-Royeric-Katie.jpg"
+cover: "/assets/images/blog/do-you-need-a-wedding-coordinator.jpg"
+coverAlt: "A bright reception room set with round white tables, gold chairs, peach rose centerpieces and taper candles"
+coverSource: "https://unsplash.com/photos/OAVqa8hQvWI (Unsplash License)"
 ---
 
 It's one of the first questions almost every couple asks themselves, usually somewhere between booking the venue and realizing just how many moving pieces a wedding actually has: *do we really need a coordinator, or can we manage this ourselves?*

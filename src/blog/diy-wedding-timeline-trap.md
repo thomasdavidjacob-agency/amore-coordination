@@ -2,7 +2,9 @@
 title: "The Hidden Timeline Trap: Why DIY Wedding Days Fall Behind"
 description: "One late detail on a wedding day can quietly derail everything after it. Here's why DIY wedding timelines tend to slip — and how to protect yours."
 date: 2026-06-20
-cover: "/assets/images/hero/home-slideshow-Jeanna-Michael.jpg"
+cover: "/assets/images/blog/diy-wedding-timeline-trap.jpg"
+coverAlt: "A hand holds a pair of white heels beside a hanging wedding gown with a lace panel"
+coverSource: "https://unsplash.com/photos/SU8kdrCq64Q (Unsplash License)"
 ---
 
 If there's one thing I've learned from coordinating hundreds of wedding days, it's this: a wedding day doesn't really run on hours and minutes. It runs on **momentum.** When it's flowing, everything feels effortless. When it slips, it doesn't just get late — the whole day starts to feel heavier.
