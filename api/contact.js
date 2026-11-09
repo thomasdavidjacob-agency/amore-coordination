@@ -1,5 +1,9 @@
 const { Resend } = require('resend')
 const { clientIp, checkFormToken, turnstileOk, hasLink, mostlyLinks, tooLong } = require('./_guard.js')
+const OPTIONS = require('./_inquiry-options.js')
+
+// Dropdown values must be one of the listed options; anything else is dropped
+const pick = (v, list) => (list.includes(v) ? v : '')
 
 const PHONE_LINE = 'call (503) 502-9231'
 
@@ -98,6 +102,8 @@ module.exports = async function handler(req, res) {
 
   const body = req.body || {}
   const { name, email, phone, weddingDate, venue, message, _honey, ft } = body
+  const pkg = pick(body.package, OPTIONS.packages)
+  const heardFrom = pick(body.heardFrom, OPTIONS.sources)
 
   // Honeypot — bots fill this, humans don't
   if (_honey) {
@@ -121,7 +127,7 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: 'Name, email, and message are required.' })
   }
 
-  if (tooLong(body, { name: 100, email: 254, phone: 40, weddingDate: 80, venue: 150, message: 5000 })) {
+  if (tooLong(body, { name: 100, email: 254, phone: 40, weddingDate: 80, venue: 150, message: 5000, package: 80, heardFrom: 80 })) {
     return res.status(400).json({ error: 'One of the fields is too long. Please shorten it and try again.' })
   }
 
@@ -159,6 +165,8 @@ module.exports = async function handler(req, res) {
   const safePhone   = esc(phone)
   const safeDate    = esc(weddingDate)
   const safeVenue   = esc(venue)
+  const safePkg     = esc(pkg)
+  const safeHeard   = esc(heardFrom)
   const safeMessage = esc(message).replace(/\n/g, '<br />')
 
   try {
@@ -176,6 +184,8 @@ module.exports = async function handler(req, res) {
             ${safePhone ? `<tr><td style="padding:8px 0;color:#5c554d;font-size:13px;vertical-align:top;"><strong>Phone</strong></td><td style="padding:8px 0;color:#2b2723;">${safePhone}</td></tr>` : ''}
             ${safeDate ? `<tr><td style="padding:8px 0;color:#5c554d;font-size:13px;vertical-align:top;"><strong>Wedding Date</strong></td><td style="padding:8px 0;color:#2b2723;">${safeDate}</td></tr>` : ''}
             ${safeVenue ? `<tr><td style="padding:8px 0;color:#5c554d;font-size:13px;vertical-align:top;"><strong>Venue</strong></td><td style="padding:8px 0;color:#2b2723;">${safeVenue}</td></tr>` : ''}
+            ${safePkg ? `<tr><td style="padding:8px 0;color:#5c554d;font-size:13px;vertical-align:top;"><strong>Package</strong></td><td style="padding:8px 0;color:#2b2723;">${safePkg}</td></tr>` : ''}
+            ${safeHeard ? `<tr><td style="padding:8px 0;color:#5c554d;font-size:13px;vertical-align:top;"><strong>Heard from</strong></td><td style="padding:8px 0;color:#2b2723;">${safeHeard}</td></tr>` : ''}
           </table>
           <hr style="border:none;border-top:1px solid #e4dcd2;margin:24px 0;" />
           <p style="color:#5c554d;font-size:13px;margin-bottom:8px;"><strong>Message</strong></p>

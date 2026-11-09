@@ -28,6 +28,34 @@ description: "Portland, Oregon wedding planning & coordination by Amy Elizabeth 
   </p>
 </section>
 
+<section class="services services--home">
+  <div class="section__head">
+    <p class="section__eyebrow">Ways to Work Together</p>
+    <h2 class="section__title">Intimate weddings, elopements &amp; partial planning</h2>
+  </div>
+  <div class="packages">
+    {%- set homeSlugs = ["micro-wedding", "pnw-elopement", "adoration"] %}
+    {% for pkg in services.intimate.concat(services.packages) %}{% if pkg.slug in homeSlugs %}
+    {%- set pkgUrl = "/services/" + pkg.slug + "/" if pkg.slug != "adoration" else "/services/#pkg-adoration" %}
+    <article class="pkg">
+      {% if pkg.icon %}<span class="pkg__icon">{{ icons[pkg.icon] | safe }}</span>{% endif %}
+      <h3 class="pkg__name">{{ pkg.name }}</h3>
+      {% if pkg.pricePrefix %}<p class="pkg__from">{{ pkg.pricePrefix }}</p>{% endif %}
+      <p class="pkg__price">{{ pkg.price }}</p>
+      <p class="pkg__type">{{ pkg.type }}</p>
+      <p class="pkg__desc">{{ pkg.desc }}</p>
+      <div class="pkg__box">
+        <p class="pkg__hours">{{ pkg.hours }}</p>
+      </div>
+      <a href="{{ pkgUrl }}" class="btn btn--dark">View {{ pkg.name }}</a>
+    </article>
+    {% endif %}{% endfor %}
+  </div>
+  <div class="section__cta">
+    <a href="/services/" class="pkg__more pkg__more--plain">All services &amp; pricing</a>
+  </div>
+</section>
+
 <section class="about">
   <div class="about__media">
     <img src="/assets/images/amy-elizabeth-ha-wedding-planner.jpg" alt="Amy Elizabeth Ha, founder and lead planner of Amore Coordination" loading="lazy" />

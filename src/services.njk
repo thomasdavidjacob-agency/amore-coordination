@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: Services & Pricing
-description: "Wedding planning packages from Amore Coordination in Portland, OR — day-of coordination, partial and full-service planning, micro weddings, and Pacific Northwest elopements, with everything each package includes."
+description: "Wedding packages from Amore Coordination in Portland, OR — micro weddings, Pacific Northwest elopements, partial planning and day-of coordination, with full-service planning by inquiry, and everything each package includes."
 faqSchema: true
 ---
 
@@ -27,29 +27,6 @@ faqSchema: true
   </div>
 </section>
 
-<section class="services">
-  <div class="packages">
-    {% for pkg in services.packages %}
-    <article class="pkg{% if pkg.featured %} pkg--featured{% endif %}">
-      {% if pkg.featured %}<span class="pkg__flag">Most Popular</span>{% endif %}
-      {% if pkg.icon %}<span class="pkg__icon">{{ icons[pkg.icon] | safe }}</span>{% endif %}
-      <h2 class="pkg__name">{{ pkg.name }}</h2>
-      {% if pkg.pricePrefix %}<p class="pkg__from">{{ pkg.pricePrefix }}</p>{% endif %}
-      <p class="pkg__price">{{ pkg.price }}</p>
-      <p class="pkg__type">{{ pkg.type }}</p>
-      <p class="pkg__desc">{{ pkg.desc }}</p>
-      <div class="pkg__box">
-        <p class="pkg__hours">{{ pkg.hours }}</p>
-        <a href="#pkg-{{ pkg.slug }}" class="pkg__more">See everything included</a>
-      </div>
-      <a href="/contact/" class="btn btn--dark">Inquire</a>
-    </article>
-    {% endfor %}
-  </div>
-
-  <p class="services__note">{{ services.packageNote }}</p>
-</section>
-
 <section class="services services--intimate">
   <div class="section__head">
     <p class="section__eyebrow">Intimate Celebrations</p>
@@ -73,6 +50,43 @@ faqSchema: true
     {% endfor %}
   </div>
 </section>
+
+<section class="services services--planning">
+  <div class="section__head">
+    <p class="section__eyebrow">Planning &amp; Coordination</p>
+    <h2 class="section__title">Partial planning &amp; day-of coordination</h2>
+  </div>
+  <div class="packages packages--duo">
+    {% for pkg in services.packages %}{% if not pkg.byInquiry %}
+    <article class="pkg{% if pkg.featured %} pkg--featured{% endif %}">
+      {% if pkg.featured %}<span class="pkg__flag">Most Popular</span>{% endif %}
+      {% if pkg.icon %}<span class="pkg__icon">{{ icons[pkg.icon] | safe }}</span>{% endif %}
+      <h2 class="pkg__name">{{ pkg.name }}</h2>
+      {% if pkg.pricePrefix %}<p class="pkg__from">{{ pkg.pricePrefix }}</p>{% endif %}
+      <p class="pkg__price">{{ pkg.price }}</p>
+      <p class="pkg__type">{{ pkg.type }}</p>
+      <p class="pkg__desc">{{ pkg.desc }}</p>
+      <div class="pkg__box">
+        <p class="pkg__hours">{{ pkg.hours }}</p>
+        <a href="#pkg-{{ pkg.slug }}" class="pkg__more">See everything included</a>
+      </div>
+      <a href="/contact/" class="btn btn--dark">Inquire</a>
+    </article>
+    {% endif %}{% endfor %}
+  </div>
+
+  <p class="services__note">{{ services.packageNote }}</p>
+</section>
+
+{% for pkg in services.packages %}{% if pkg.byInquiry %}
+<aside class="holiday-callout">
+  {% if pkg.icon %}<span class="pkg__icon pkg__icon--sm">{{ icons[pkg.icon] | safe }}</span>{% endif %}
+  <p class="section__eyebrow">{{ pkg.type }} · By Inquiry</p>
+  <h2 class="holiday-callout__title">{{ pkg.name }} — {{ pkg.price }}</h2>
+  <p>{{ pkg.desc }} Available by inquiry: tell me about your plans and we'll talk about whether full-service planning is the right fit.</p>
+  <a href="#pkg-{{ pkg.slug }}" class="btn btn--dark">See what's included</a>
+</aside>
+{% endif %}{% endfor %}
 
 <aside class="holiday-callout">
   <span class="pkg__icon pkg__icon--sm">{{ icons.snowflake | safe }}</span>

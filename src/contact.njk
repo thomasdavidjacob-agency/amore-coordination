@@ -25,6 +25,26 @@ description: "Inquire with Amore Coordination — Portland, Oregon wedding plann
         <div class="field"><input type="text" name="weddingDate" placeholder="Wedding / event date" /></div>
         <div class="field"><input type="text" name="venue" placeholder="Venue (if known)" /></div>
       </div>
+      <div class="field-row">
+        <div class="field">
+          <label class="sr-only" for="inq-package">Which package are you interested in?</label>
+          <select name="package" id="inq-package">
+            <option value="">Which package? (optional)</option>
+            {%- for o in inquiryOptions.packages %}
+            <option value="{{ o }}">{{ o }}</option>
+            {%- endfor %}
+          </select>
+        </div>
+        <div class="field">
+          <label class="sr-only" for="inq-source">How did you hear about Amore?</label>
+          <select name="heardFrom" id="inq-source">
+            <option value="">How did you hear about me? (optional)</option>
+            {%- for o in inquiryOptions.sources %}
+            <option value="{{ o }}">{{ o }}</option>
+            {%- endfor %}
+          </select>
+        </div>
+      </div>
       <div class="field">
         <textarea name="message" rows="5" placeholder="Tell me about your vision…"></textarea>
       </div>

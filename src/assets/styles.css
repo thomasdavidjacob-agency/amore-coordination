@@ -313,6 +313,11 @@ img { display: block; max-width: 100%; }
 }
 
 .packages--solo { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+.services--planning { padding-top: 0; }
+.services--planning .services__note { margin-top: 3rem; }
+.services--home { padding-top: 2rem; }
+.services--home .packages { margin-bottom: 2.4rem; }
+.pkg__more--plain::after { content: " →"; }
 
 /* ===== Holiday events ===== */
 .holiday__intro {
@@ -515,15 +520,20 @@ img { display: block; max-width: 100%; }
 .contact__form { text-align: left; }
 .field { margin-bottom: 1rem; }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.contact input, .contact textarea {
+.contact input, .contact textarea, .contact select {
   width: 100%; background: transparent; border: none;
   border-bottom: 1px solid rgba(247,243,236,0.28);
   color: var(--ivory); font-family: var(--sans); font-size: 0.95rem;
   padding: 0.9rem 0.2rem; transition: border-color 0.3s;
 }
 .contact input::placeholder, .contact textarea::placeholder { color: rgba(247,243,236,0.45); }
-.contact input:focus, .contact textarea:focus { outline: none; border-color: var(--blush); }
+.contact input:focus, .contact textarea:focus, .contact select:focus { outline: none; border-color: var(--blush); }
 .contact textarea { resize: vertical; }
+.contact select { appearance: none; -webkit-appearance: none; cursor: pointer; border-radius: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23f7f3ec' stroke-opacity='.6' stroke-width='1.4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 0.3rem center; padding-right: 1.6rem; }
+.contact select:invalid, .contact select option[value=""] { color: rgba(247,243,236,0.45); }
+.contact select option { color: var(--ink); background: var(--ivory); }
 .contact__form .btn { margin-top: 1.6rem; color: var(--ivory); }
 .contact__form .btn:hover { background: var(--ivory); color: var(--plum-deep); border-color: var(--ivory); }
 .contact__details {
@@ -846,3 +856,5 @@ img { display: block; max-width: 100%; }
 .post__cta-more { margin-top: 1rem; font-size: 0.9rem; }
 .post__cta-more a { color: var(--plum); text-decoration: underline; text-underline-offset: 3px; }
 .journal-strip { max-width: 760px; margin: 0 auto; padding: 2rem 2rem 3rem; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
