@@ -532,7 +532,7 @@ img { display: block; max-width: 100%; }
 .contact select { appearance: none; -webkit-appearance: none; cursor: pointer; border-radius: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23f7f3ec' stroke-opacity='.6' stroke-width='1.4'/%3E%3C/svg%3E");
   background-repeat: no-repeat; background-position: right 0.3rem center; padding-right: 1.6rem; }
-.contact select:invalid, .contact select option[value=""] { color: rgba(247,243,236,0.45); }
+.contact select:has(option[value=""]:checked) { color: rgba(247,243,236,0.45); }
 .contact select option { color: var(--ink); background: var(--ivory); }
 .contact__form .btn { margin-top: 1.6rem; color: var(--ivory); }
 .contact__form .btn:hover { background: var(--ivory); color: var(--plum-deep); border-color: var(--ivory); }
