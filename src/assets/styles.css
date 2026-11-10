@@ -316,7 +316,10 @@ img { display: block; max-width: 100%; }
 .packages--solo { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
 .services--planning .services__note { margin-top: 3rem; }
 /* Endearment | Adoration (larger) | Unforgettable */
-.packages--trio { grid-template-columns: 1fr 1.18fr 1fr; align-items: center; margin-bottom: 0; }
+.packages--trio { grid-template-columns: 1fr 1.18fr 1fr; align-items: stretch; margin-bottom: 0; }
+.packages--trio .pkg { display: flex; flex-direction: column; }
+.packages--trio .pkg .btn { margin-top: auto; align-self: center; }
+.packages--trio .pkg:not(.pkg--featured) { margin: 2.2rem 0; }
 .packages--trio .pkg--featured { padding: 3.8rem 2.6rem; }
 .packages--trio .pkg--featured .pkg__name { font-size: 2.3rem; }
 .packages--trio .pkg--featured .pkg__price { font-size: 3rem; }
@@ -698,6 +701,7 @@ img { display: block; max-width: 100%; }
   .grid { grid-template-columns: repeat(2, 1fr); }
   .packages { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; margin-bottom: 4rem; }
   .pkg--featured { order: -1; }
+  .packages--trio .pkg:not(.pkg--featured) { margin: 0; }
 }
 
 @media (max-width: 640px) {
