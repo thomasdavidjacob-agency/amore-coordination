@@ -159,7 +159,7 @@ module.exports = {
       name: "Micro Wedding",
       icon: "flutes",
       pricePrefix: "Starting at",
-      price: "$2,700",
+      price: "$2,500",
       type: "Up to 50 Guests",
       hours: "Eight hours of wedding-day coordination",
       desc: "Designed for couples who want an intimate celebration with every detail thoughtfully coordinated.",
