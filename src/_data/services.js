@@ -67,7 +67,7 @@ module.exports = {
       name: "Endearment",
       icon: "watch",
       price: "$3,200",
-      type: "Day-of Management",
+      type: "Management",
       flag: "Budget Friendly",
       hours: "Ten hours of wedding-day service",
       desc: "For couples seeking a dedicated professional to facilitate, execute, and ensure their wedding day unfolds seamlessly.",
