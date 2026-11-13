@@ -15,4 +15,14 @@ const portfolio = [
   { couple: "Mary Kate & Marcus", venue: "The Butler Barn",                location: "Beaverton, OR",    photog: "Devyn Spangler Photography", img: "Mary-Kate-abd-Marcus.png",        slug: null },
 ];
 
-module.exports = portfolio.map((p) => ({ ...p, cover: BASE + p.img.replace(/\.png$/i, ".jpg") }));
+// Sharp 600x750 portrait covers cut from each gallery (2026-11-13); couples
+// without a gallery keep the original 592x330 landscape cover. shareImage stays
+// landscape for link previews.
+const fs = require("fs");
+const path = require("path");
+const ASSETS = path.join(__dirname, "..", "assets", "images", "covers");
+const landscape = (p) => BASE + p.img.replace(/\.png$/i, ".jpg");
+const coverFor = (p) =>
+  p.slug && fs.existsSync(path.join(ASSETS, p.slug + "-cover.jpg")) ? BASE + p.slug + "-cover.jpg" : landscape(p);
+
+module.exports = portfolio.map((p) => ({ ...p, cover: coverFor(p), shareImage: landscape(p) }));
