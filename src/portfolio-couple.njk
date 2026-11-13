@@ -9,7 +9,7 @@ permalink: "/portfolio/{{ couple.slug }}/"
 eleventyComputed:
   title: "{{ couple.couple | safe }} — {{ couple.venue }} Wedding"
   description: "A {{ couple.venue }} wedding in {{ couple.location }} — {{ couple.couple | safe }}, coordinated by Amore Coordination. Photography by {{ couple.photog }}."
-  socialImage: "{{ couple.cover }}"
+  socialImage: "{{ couple.shareImage }}"
 ---
 
 <section class="page-hero page-hero--couple">
